@@ -5,61 +5,52 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Mail, Phone } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-
 const ContactSidebar = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: "",
+    message: ""
   });
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Správa odoslaná",
-      description: "Čoskoro vás budeme kontaktovať.",
+      description: "Čoskoro vás budeme kontaktovať."
     });
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({
+      name: "",
+      email: "",
+      message: ""
+    });
   };
-
-  return (
-    <div className="space-y-6">
+  return <div className="space-y-6">
       {/* Contact Form */}
       <Card className="border-2 shadow-md">
         <CardHeader className="bg-primary text-primary-foreground">
-          <CardTitle className="text-xl">Spojte sa s nami</CardTitle>
+          <CardTitle className="text-xl">Kontaktujte nás</CardTitle>
         </CardHeader>
         <CardContent className="pt-6">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <Input
-                placeholder="Meno"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                required
-                className="bg-background"
-              />
+              <Input placeholder="Meno" value={formData.name} onChange={e => setFormData({
+              ...formData,
+              name: e.target.value
+            })} required className="bg-background" />
             </div>
             <div>
-              <Input
-                type="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                required
-                className="bg-background"
-              />
+              <Input type="email" placeholder="Email" value={formData.email} onChange={e => setFormData({
+              ...formData,
+              email: e.target.value
+            })} required className="bg-background" />
             </div>
             <div>
-              <Textarea
-                placeholder="Správa"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                required
-                rows={4}
-                className="bg-background"
-              />
+              <Textarea placeholder="Správa" value={formData.message} onChange={e => setFormData({
+              ...formData,
+              message: e.target.value
+            })} required rows={4} className="bg-background" />
             </div>
             <Button type="submit" className="w-full bg-primary hover:bg-primary-hover">
               Odoslať
@@ -94,8 +85,6 @@ const ContactSidebar = () => {
           </div>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>;
 };
-
 export default ContactSidebar;
