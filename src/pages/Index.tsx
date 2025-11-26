@@ -8,13 +8,13 @@ import heroImage from "@/assets/hero-windows.jpg";
 
 const Index = () => {
   const products = [
-    { title: "Windows", icon: RectangleHorizontal, path: "/windows" },
-    { title: "Doors", icon: DoorOpen, path: "/doors" },
-    { title: "Sliding systems", icon: ArrowRightLeft, path: "/sliding-systems" },
-    { title: "Aluminum", icon: Box, path: "/aluminum" },
-    { title: "Facades", icon: Building2, path: "/facades" },
-    { title: "Garage systems", icon: Warehouse, path: "/garage-systems" },
-    { title: "Additional elements", icon: Plus, path: "/additional-elements" },
+    { title: "Okná", icon: RectangleHorizontal, path: "/windows" },
+    { title: "Dvere", icon: DoorOpen, path: "/doors" },
+    { title: "Posuvné systémy", icon: ArrowRightLeft, path: "/sliding-systems" },
+    { title: "Hliník", icon: Box, path: "/aluminum" },
+    { title: "Fasády", icon: Building2, path: "/facades" },
+    { title: "Garážové brány a žalúzie", icon: Warehouse, path: "/garage-systems" },
+    { title: "Doplnkové prvky", icon: Plus, path: "/additional-elements" },
   ];
 
   return (

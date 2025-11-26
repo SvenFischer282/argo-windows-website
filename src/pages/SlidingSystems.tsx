@@ -13,7 +13,7 @@ const SlidingSystems = () => {
 
   return (
     <ProductLayout
-      title="Sliding systems"
+      title="Posuvné systémy"
       description={description}
       technology={technology}
       images={images}

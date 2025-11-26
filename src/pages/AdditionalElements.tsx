@@ -13,7 +13,7 @@ const AdditionalElements = () => {
 
   return (
     <ProductLayout
-      title="Additional elements"
+      title="Doplnkové prvky"
       description={description}
       technology={technology}
       images={images}

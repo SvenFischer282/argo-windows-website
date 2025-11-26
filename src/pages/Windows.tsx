@@ -13,7 +13,7 @@ const Windows = () => {
 
   return (
     <ProductLayout
-      title="Windows"
+      title="Okná"
       description={description}
       technology={technology}
       images={images}
