@@ -13,7 +13,7 @@ const Doors = () => {
 
   return (
     <ProductLayout
-      title="Doors"
+      title="Dvere"
       description={description}
       technology={technology}
       images={images}

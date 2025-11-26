@@ -13,7 +13,7 @@ const Aluminum = () => {
 
   return (
     <ProductLayout
-      title="Aluminum"
+      title="Hliník"
       description={description}
       technology={technology}
       images={images}

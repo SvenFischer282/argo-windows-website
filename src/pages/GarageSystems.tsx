@@ -13,7 +13,7 @@ const GarageSystems = () => {
 
   return (
     <ProductLayout
-      title="Garage systems and shutters"
+      title="Garážové brány a žalúzie"
       description={description}
       technology={technology}
       images={images}
