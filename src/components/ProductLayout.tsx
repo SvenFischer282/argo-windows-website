@@ -2,6 +2,14 @@ import { ReactNode } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactSidebar from "@/components/ContactSidebar";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 interface ProductLayoutProps {
   title: string;
@@ -18,13 +26,25 @@ const ProductLayout = ({ title, description, technology, images, features }: Pro
       <Navigation />
 
       {/* Main Content */}
-      <main className="flex-1 py-12">
+      <main className="flex-1 py-12 animate-fade-in">
         <div className="container mx-auto px-4">
+          {/* Breadcrumb */}
+          <Breadcrumb className="mb-6">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Domov</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left Column - Content */}
             <div className="lg:col-span-2 space-y-8">
               {/* Featured Image */}
-              <div className="rounded-lg overflow-hidden shadow-lg">
+              <div className="rounded-lg overflow-hidden shadow-lg hover-scale transition-all duration-300">
                 <img
                   src={images[0]}
                   alt={title}
@@ -33,7 +53,7 @@ const ProductLayout = ({ title, description, technology, images, features }: Pro
               </div>
 
               {/* Title and Description */}
-              <div className="bg-background p-8 rounded-lg shadow-md">
+              <div className="bg-background p-8 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg">
                 <h1 className="text-4xl font-bold mb-6 text-foreground">{title}</h1>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   {description}
@@ -55,7 +75,7 @@ const ProductLayout = ({ title, description, technology, images, features }: Pro
               </div>
 
               {/* Technology Section */}
-              <div className="bg-background p-8 rounded-lg shadow-md">
+              <div className="bg-background p-8 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg">
                 <h2 className="text-3xl font-bold mb-6 text-foreground">Technológie a materiály</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {technology}
@@ -64,13 +84,13 @@ const ProductLayout = ({ title, description, technology, images, features }: Pro
 
               {/* Gallery */}
               {images.length > 1 && (
-                <div className="bg-background p-8 rounded-lg shadow-md">
+                <div className="bg-background p-8 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg">
                   <h2 className="text-3xl font-bold mb-6 text-foreground">Galéria</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {images.slice(1).map((image, index) => (
                       <div
                         key={index}
-                        className="aspect-video rounded-lg overflow-hidden hover-lift"
+                        className="aspect-video rounded-lg overflow-hidden hover-scale transition-all duration-300"
                       >
                         <img
                           src={image}
