@@ -13,12 +13,30 @@ const Windows = () => {
   ];
   
   const certifications = [
-    { name: "STN EN 14351-1 - Okná a dvere - Norma výrobku", pdfUrl: "/certificates/stn-en-14351-1.pdf" },
-    { name: "CE certifikát - Zhoda s európskymi normami", pdfUrl: "/certificates/ce-certificate.pdf" },
-    { name: "Energetická trieda A+ - Vysoká energetická účinnosť", pdfUrl: "/certificates/energy-class-a.pdf" },
-    { name: "ISO 9001 - Systém manažérstva kvality", pdfUrl: "/certificates/iso-9001.pdf" },
-    { name: "STN 73 0540 - Tepelná ochrana budov", pdfUrl: "/certificates/stn-73-0540.pdf" },
-    { name: "RAL certifikát - Garancia kvality montáže", pdfUrl: "/certificates/ral-certificate.pdf" }
+    "STN EN 14351-1 - Okná a dvere - Norma výrobku",
+    "CE certifikát - Zhoda s európskymi normami",
+    "Energetická trieda A+ - Vysoká energetická účinnosť",
+    "ISO 9001 - Systém manažérstva kvality",
+    "STN 73 0540 - Tepelná ochrana budov",
+    "RAL certifikát - Garancia kvality montáže"
+  ];
+
+  const downloadableDocuments = [
+    {
+      name: "Technický katalóg okien",
+      description: "Kompletný prehľad našich okenných systémov s technickými parametrami",
+      pdfUrl: "/documents/katalog-okien.pdf"
+    },
+    {
+      name: "Návod na údržbu",
+      description: "Odporúčania pre správnu údržbu a čistenie okien",
+      pdfUrl: "/documents/udrzba-okien.pdf"
+    },
+    {
+      name: "Montážny manuál",
+      description: "Profesionálny návod pre montáž okenných systémov",
+      pdfUrl: "/documents/montaz-okien.pdf"
+    }
   ];
   
   const images = [
@@ -35,6 +53,7 @@ const Windows = () => {
       images={images}
       features={features}
       certifications={certifications}
+      downloadableDocuments={downloadableDocuments}
     />
   );
 };
