@@ -13,12 +13,25 @@ const Facades = () => {
   ];
   
   const certifications = [
-    { name: "STN EN 13830 - Fasádne systémy - Norma výrobku", pdfUrl: "/certificates/facades-stn-en-13830.pdf" },
-    { name: "CE certifikát - Zhoda s európskymi normami", pdfUrl: "/certificates/facades-ce-certificate.pdf" },
-    { name: "Tepelná izolácia Uf od 0.8 W/m²K", pdfUrl: "/certificates/facades-thermal-insulation.pdf" },
-    { name: "Veterná odolnosť do triedy E", pdfUrl: "/certificates/facades-wind-resistance.pdf" },
-    { name: "Protipožiarna ochrana EI 30-90", pdfUrl: "/certificates/fire-protection-ei.pdf" },
-    { name: "Akustická izolácia až 48 dB", pdfUrl: "/certificates/facades-acoustic.pdf" }
+    "STN EN 13830 - Fasádne systémy - Norma výrobku",
+    "CE certifikát - Zhoda s európskymi normami",
+    "Tepelná izolácia Uf od 0.8 W/m²K",
+    "Veterná odolnosť do triedy E",
+    "Protipožiarna ochrana EI 30-90",
+    "Akustická izolácia až 48 dB"
+  ];
+
+  const downloadableDocuments = [
+    {
+      name: "Fasádne systémy - katalóg",
+      description: "Prehľad fasádnych riešení pre komerčné budovy",
+      pdfUrl: "/documents/katalog-fasady.pdf"
+    },
+    {
+      name: "Energetická efektívnosť",
+      description: "Tepelno-technické parametre fasádnych systémov",
+      pdfUrl: "/documents/energeticka-efektivnost-fasady.pdf"
+    }
   ];
   
   const images = [
@@ -35,6 +48,7 @@ const Facades = () => {
       images={images}
       features={features}
       certifications={certifications}
+      downloadableDocuments={downloadableDocuments}
     />
   );
 };

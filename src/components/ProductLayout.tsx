@@ -13,8 +13,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 
-interface Certification {
+interface DownloadableDocument {
   name: string;
+  description: string;
   pdfUrl: string;
 }
 
@@ -24,11 +25,12 @@ interface ProductLayoutProps {
   technology: string;
   images: string[];
   features?: string[];
-  certifications?: Certification[];
+  certifications?: string[];
+  downloadableDocuments?: DownloadableDocument[];
   children?: ReactNode;
 }
 
-const ProductLayout = ({ title, description, technology, images, features, certifications }: ProductLayoutProps) => {
+const ProductLayout = ({ title, description, technology, images, features, certifications, downloadableDocuments }: ProductLayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col bg-muted/30">
       <Navigation />
@@ -94,12 +96,27 @@ const ProductLayout = ({ title, description, technology, images, features, certi
               {certifications && certifications.length > 0 && (
                 <div className="bg-background p-8 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg">
                   <h2 className="text-3xl font-bold mb-6 text-foreground">Certifikáty a normy</h2>
-                  <div className="grid grid-cols-1 gap-4">
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {certifications.map((cert, index) => (
+                      <li key={index} className="flex items-start gap-3 p-4 bg-muted/30 rounded-lg hover:bg-muted/50 transition-colors">
+                        <span className="text-primary text-xl mt-0.5">✓</span>
+                        <span className="text-muted-foreground">{cert}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Downloadable Documents Section */}
+              {downloadableDocuments && downloadableDocuments.length > 0 && (
+                <div className="bg-background p-8 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg">
+                  <h2 className="text-3xl font-bold mb-6 text-foreground">Dokumenty na stiahnutie</h2>
+                  <div className="grid grid-cols-1 gap-4">
+                    {downloadableDocuments.map((doc, index) => (
                       <div key={index} className="flex items-center justify-between gap-4 p-4 bg-muted/30 rounded-lg hover:bg-muted/50 transition-colors">
-                        <div className="flex items-start gap-3 flex-1">
-                          <span className="text-primary text-xl mt-0.5">✓</span>
-                          <span className="text-muted-foreground">{cert.name}</span>
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-foreground mb-1">{doc.name}</h3>
+                          <p className="text-sm text-muted-foreground">{doc.description}</p>
                         </div>
                         <Button
                           variant="outline"
@@ -107,7 +124,7 @@ const ProductLayout = ({ title, description, technology, images, features, certi
                           asChild
                           className="shrink-0"
                         >
-                          <a href={cert.pdfUrl} download target="_blank" rel="noopener noreferrer">
+                          <a href={doc.pdfUrl} download target="_blank" rel="noopener noreferrer">
                             <Download className="w-4 h-4 mr-2" />
                             Stiahnuť PDF
                           </a>

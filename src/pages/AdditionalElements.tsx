@@ -13,12 +13,25 @@ const AdditionalElements = () => {
   ];
   
   const certifications = [
-    { name: "CE certifikát - Zhoda s európskymi normami", pdfUrl: "/certificates/additional-ce-certificate.pdf" },
-    { name: "ISO 9001 - Systém manažérstva kvality", pdfUrl: "/certificates/additional-iso-9001.pdf" },
-    { name: "STN EN 13659 - Vonkajšie žalúzie", pdfUrl: "/certificates/stn-en-13659.pdf" },
-    { name: "Certifikované tesnenia EPDM", pdfUrl: "/certificates/epdm-seals.pdf" },
-    { name: "Korózia odolnosť RAL certifikovaná", pdfUrl: "/certificates/additional-ral.pdf" },
-    { name: "Záručná doba až 10 rokov", pdfUrl: "/certificates/warranty-10-years.pdf" }
+    "CE certifikát - Zhoda s európskymi normami",
+    "ISO 9001 - Systém manažérstva kvality",
+    "STN EN 13659 - Vonkajšie žalúzie",
+    "Certifikované tesnenia EPDM",
+    "Korózia odolnosť RAL certifikovaná",
+    "Záručná doba až 10 rokov"
+  ];
+
+  const downloadableDocuments = [
+    {
+      name: "Doplnkové prvky - katalóg",
+      description: "Kompletný prehľad príslušenstva a doplnkov",
+      pdfUrl: "/documents/katalog-doplnky.pdf"
+    },
+    {
+      name: "Montážne pokyny",
+      description: "Inštrukcie pre montáž parapetov a doplnkov",
+      pdfUrl: "/documents/montaz-doplnky.pdf"
+    }
   ];
   
   const images = [
@@ -35,6 +48,7 @@ const AdditionalElements = () => {
       images={images}
       features={features}
       certifications={certifications}
+      downloadableDocuments={downloadableDocuments}
     />
   );
 };

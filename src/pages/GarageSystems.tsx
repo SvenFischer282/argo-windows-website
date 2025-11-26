@@ -13,12 +13,25 @@ const GarageSystems = () => {
   ];
   
   const certifications = [
-    { name: "STN EN 13241-1 - Garážové brány - Norma výrobku", pdfUrl: "/certificates/garage-stn-en-13241-1.pdf" },
-    { name: "CE certifikát - Zhoda s európskymi normami", pdfUrl: "/certificates/garage-ce-certificate.pdf" },
-    { name: "Bezpečnostné snímače - Ochrana osôb", pdfUrl: "/certificates/safety-sensors.pdf" },
-    { name: "Automatika s nouzovým odblokovaním", pdfUrl: "/certificates/automatic-emergency.pdf" },
-    { name: "Tepelná izolácia až 1.0 W/m²K", pdfUrl: "/certificates/garage-thermal.pdf" },
-    { name: "Veterná odolnosť trieda 3", pdfUrl: "/certificates/garage-wind-resistance.pdf" }
+    "STN EN 13241-1 - Garážové brány - Norma výrobku",
+    "CE certifikát - Zhoda s európskymi normami",
+    "Bezpečnostné snímače - Ochrana osôb",
+    "Automatika s nouzovým odblokovaním",
+    "Tepelná izolácia až 1.0 W/m²K",
+    "Veterná odolnosť trieda 3"
+  ];
+
+  const downloadableDocuments = [
+    {
+      name: "Garážové brány - katalóg",
+      description: "Kompletný sortiment garážových brán a žalúzií",
+      pdfUrl: "/documents/katalog-garazove-brany.pdf"
+    },
+    {
+      name: "Návod na obsluhu",
+      description: "Návod na použitie a údržbu automatických brán",
+      pdfUrl: "/documents/navod-garazove-brany.pdf"
+    }
   ];
   
   const images = [
@@ -35,6 +48,7 @@ const GarageSystems = () => {
       images={images}
       features={features}
       certifications={certifications}
+      downloadableDocuments={downloadableDocuments}
     />
   );
 };
