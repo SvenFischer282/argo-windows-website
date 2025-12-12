@@ -12,9 +12,6 @@ import heroImage from "@/assets/hero-windows.jpg";
 const WindowsLayout = () => {
   const title = "Okná";
 
-  const description =
-    "Plastové okná majú veľký dopyt vďaka svojmu atraktívnemu dizajnu a praktickosti. Nevyžadujú natieranie, majú veľmi estetický a pekný vzhľad. Spolupracujeme s výrobcami kvalitných profilových systémov, ktorých produkcia prechádza kontrolou kvality na všetkých etapách výroby.";
-
   const features = [
     "Plastové okná",
     "Drevené okná",
@@ -24,46 +21,51 @@ const WindowsLayout = () => {
 
   const technologies = [
     {
-      name: "5-komorový systém",
+      name: "WDS 5S",
       description: "60 mm | Klasické okná s optimálnou komfortnou výbavou",
-      image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80",
+      descriptionDetailed:
+        "Klasické okná s optimálnou kompletáciou. Päť komôr v profile zaisťuje vysoké tepelnoizolačné vlastnosti pre konštrukcie danej triedy.",
+      image: "src/assets/product_imgs/windows/WDS_5S.png",
     },
     {
-      name: "6-komorový systém",
+      name: "WDS 6S",
       description: "70 mm | Vyššia tepelná izolácia a úspora energie",
-      image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80",
+      descriptionDetailed:
+        "6-komorový profilový systém WDS 6S má menšiu výšku a prepúšťa viac svetla. Je vyvinutý na zasklenie obytných budov. Šesť vzduchových komôr zaisťuje spoľahlivú tepelnú izoláciu.",
+      image: "src/assets/product_imgs/windows/WDS_6S.png",
     },
     {
-      name: "7-komorový systém",
+      name: "WDS 7S",
       description: "76 mm | Prémiová tepelná a zvuková izolácia",
-      image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80",
+      descriptionDetailed:
+        "6-komorový profilový systém pre výrobu okien a dverí s vysokými tepelnoizolačnými parametrami. Umožňuje výrobu klasických aj neštandardných konštrukcií (trojuholníkové, oblúkové, kruhové).",
+      image: "src/assets/product_imgs/windows/WDS_7S.png",
     },
     {
-      name: "8-komorový systém",
+      name: "WDS 8S",
       description: "82 mm | Najvyššia energetická účinnosť",
-      image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80",
+      descriptionDetailed:
+        "6-komorový profilový systém s tromi tesniacimi okruhmi a bezchybným dizajnom – je jedným z najúspornejších okenných systémov. Vhodný pre budovy so zvýšenými nárokmi na úsporu tepla.",
+      image: "src/assets/product_imgs/windows/WDS_8S.png",
     },
     {
-      name: "Panoramatický systém",
+      name: "WDS 76 AD",
       description: "76 mm | Maximálne presvetlenie interiéru",
-      image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80",
+      descriptionDetailed:
+        "WDS 76 AD má komory na armovanie väčšie ako iné systémy WDS. Okná prepúšťajú viac svetla a umožňujú vytvárať veľkorozmerné konštrukcie. Ideálny na zasklenie domov, terás, veránd.",
+      image: "src/assets/product_imgs/windows/WDS_76_AD.png",
     },
     {
-      name: "Pasívny dom",
+      name: "WDS 76 MD",
       description: "90 mm | Pre pasívne a nízkoenergetické domy",
-      image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80",
+      descriptionDetailed:
+        "WDS 76 MD má komory na armovanie väčšie ako iné systémy WDS. Okná prepúšťajú viac svetla, umožňujú veľkorozmerné konštrukcie a sú ideálne pre panoramatické zasklenie. Má vysokú úroveň energetickej úspornosti.",
+      image: "src/assets/product_imgs/windows/WDS_76_MD.png",
     },
   ];
 
   const images = [
     "https://vesnyanka.com.ua/wp-content/uploads/2022/10/valeriy-lobanov-sCFjj3evA1s-unsplash-1-scaled.jpg",
-    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
   ];
 
   return (
@@ -77,13 +79,46 @@ const WindowsLayout = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <ProductHero image={images[0]} alt={title} />
-              <ProductDescription
-                title={title}
-                description={description}
-                features={features}
-              />
+              <div className="space-y-6">
+                <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                  Okná
+                </h1>
+
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Plastové okná sú veľmi obľúbené vďaka svojmu modernému dizajnu
+                  a vysokej praktickosti.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Nie je ich potrebné natierať a zároveň pôsobia esteticky a
+                  elegantne.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Spolupracujeme s výrobcom profilových systémov WDS, ktorého
+                  produkty prechádzajú dôslednou kontrolou kvality v každom
+                  kroku výroby.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Profilové systémy <strong>WDS</strong> sú vyrábané podľa
+                  medzinárodných a slovenských štandardov kvality, priamo pre
+                  klimatické podmienky Slovenska a slovenské domácnosti.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Tieto okná sú vyrobené z moderných, vysokotechnologických
+                  materiálov, ktoré ponúkajú vynikajúce úžitkové vlastnosti.
+                </p>
+              </div>
               <TechnologyGrid technologies={technologies} />
-              <ProductGallery images={images} title={title} />
+              {/* Technology Descriptions */}
+              <div className="space-y-6">
+                {technologies.map((tech, index) => (
+                  <div key={index} className="space-y-2">
+                    <h4 className="font-bold text-foreground">{tech.name}</h4>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {tech.descriptionDetailed}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="lg:col-span-1">

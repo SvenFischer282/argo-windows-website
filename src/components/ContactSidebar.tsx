@@ -9,24 +9,23 @@ const ContactSidebar = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Správa odoslaná",
-      description: "Čoskoro vás budeme kontaktovať."
+      description: "Čoskoro vás budeme kontaktovať.",
     });
     setFormData({
       name: "",
       email: "",
-      message: ""
+      message: "",
     });
   };
-  return <div className="space-y-6">
+  return (
+    <div className="space-y-6">
       {/* Contact Form */}
       <Card className="border-2 shadow-md">
         <CardHeader className="bg-primary text-primary-foreground">
@@ -35,24 +34,53 @@ const ContactSidebar = () => {
         <CardContent className="pt-6">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <Input placeholder="Meno" value={formData.name} onChange={e => setFormData({
-              ...formData,
-              name: e.target.value
-            })} required className="bg-background" />
+              <Input
+                placeholder="Meno"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    name: e.target.value,
+                  })
+                }
+                required
+                className="bg-background"
+              />
             </div>
             <div>
-              <Input type="email" placeholder="Email" value={formData.email} onChange={e => setFormData({
-              ...formData,
-              email: e.target.value
-            })} required className="bg-background" />
+              <Input
+                type="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    email: e.target.value,
+                  })
+                }
+                required
+                className="bg-background"
+              />
             </div>
             <div>
-              <Textarea placeholder="Správa" value={formData.message} onChange={e => setFormData({
-              ...formData,
-              message: e.target.value
-            })} required rows={4} className="bg-background" />
+              <Textarea
+                placeholder="Správa"
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    message: e.target.value,
+                  })
+                }
+                required
+                rows={4}
+                className="bg-background"
+              />
             </div>
-            <Button type="submit" className="w-full bg-primary hover:bg-primary-hover">
+            <Button
+              type="submit"
+              className="w-full bg-primary hover:bg-primary-hover"
+            >
               Odoslať
             </Button>
           </form>
@@ -68,7 +96,9 @@ const ContactSidebar = () => {
           <div className="flex items-start gap-3">
             <MapPin className="text-primary mt-1 flex-shrink-0" size={20} />
             <div>
-              <p className="text-sm text-muted-foreground">Lorem ipsum 123, Bratislava</p>
+              <p className="text-sm text-muted-foreground">
+                Slovenská 256, 05 321 Markušovce
+              </p>
             </div>
           </div>
           <div className="flex items-start gap-3">
@@ -80,11 +110,12 @@ const ContactSidebar = () => {
           <div className="flex items-start gap-3">
             <Phone className="text-primary mt-1 flex-shrink-0" size={20} />
             <div>
-              <p className="text-sm text-muted-foreground">+421 XXX XXX XXX</p>
+              <p className="text-sm text-muted-foreground">+421 903 468 472</p>
             </div>
           </div>
         </CardContent>
       </Card>
-    </div>;
+    </div>
+  );
 };
 export default ContactSidebar;
