@@ -43,194 +43,97 @@ const AluminumLayout = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <ProductHero image={images[0]} alt={title} />
-              <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+              <div className="space-y-4">
+                <h1 className="text-3xl md:text-4xl font-semibold text-foreground">
                   Hliníkové Konštrukcie
                 </h1>
 
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  <strong>Ľahké hliníkové systémy</strong> sú ideálnou voľbou,
-                  ak potrebujete zabezpečiť{" "}
-                  <strong>maximálne prirodzené osvetlenie</strong> a nemáte
-                  prísne požiadavky na tepelnú izoláciu.
-                </p>
+                <div className="prose prose-lg max-w-none space-y-4">
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    <strong className="text-foreground font-medium">Ľahké hliníkové systémy</strong> sú ideálnou voľbou,
+                    ak potrebujete zabezpečiť maximálne prirodzené osvetlenie a nemáte
+                    prísne požiadavky na tepelnú izoláciu.
+                  </p>
 
-                <h2 className="text-2xl font-semibold text-foreground mt-8">
-                  Náš Sortiment Hliníkových Produktov
-                </h2>
+                  <h2 className="text-xl font-medium text-foreground pt-4">
+                    Náš Sortiment Hliníkových Produktov
+                  </h2>
 
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Naša spoločnosť vyrába a dodáva široký rad hliníkových
-                  konštrukcií, vrátane:
-                </p>
+                  <ul className="list-disc list-outside text-base text-muted-foreground leading-relaxed ml-5 space-y-1">
+                    <li>Fasády</li>
+                    <li>Kancelárske priečky</li>
+                    <li>Okná</li>
+                    <li>Dvere a iné hliníkové výrobky</li>
+                  </ul>
 
-                <ul className="list-disc list-inside text-lg text-muted-foreground leading-relaxed ml-4">
-                  <li>Fasády</li>
-                  <li>Kancelárske priečky</li>
-                  <li>Okná</li>
-                  <li>Dvere a iné hliníkové výrobky</li>
-                </ul>
+                  <h3 className="text-lg font-medium text-foreground pt-2">
+                    Hliníkové Okná
+                  </h3>
 
-                <h3 className="text-xl font-semibold text-foreground mt-6">
-                  Hliníkové Okná
-                </h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Hliníkové okná patria k najobľúbenejším typom okenných konštrukcií.
+                    Vyznačujú sa vysokou odolnosťou proti korózii, sú trvácne a praktické.
+                  </p>
 
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Hliníkové okná patria k <strong>najobľúbenejším</strong> typom
-                  okenných konštrukcií, ktoré sa často volia na zasklievanie
-                  kancelárií, obytných a priemyselných priestorov.
-                </p>
+                  <h3 className="text-lg font-medium text-foreground pt-2">
+                    Rozdiel medzi „Studeným" a „Teplým" Hliníkom
+                  </h3>
 
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Tieto okná sa vyznačujú{" "}
-                  <strong>vysokou odolnosťou proti korózii</strong>, sú{" "}
-                  <strong>trvácne</strong> a <strong>praktické</strong>. V
-                  porovnaní s inými konštrukciami sú vhodnejšie pre stavby so
-                  zvýšenými prevádzkovými požiadavkami.
-                </p>
+                  <ul className="list-disc list-outside text-base text-muted-foreground leading-relaxed ml-5 space-y-2">
+                    <li>
+                      <strong className="text-foreground font-medium">„Studený" hliník</strong> – Ideálny pre balkóny, verandy, altánky a terasy. Cenovo dostupné klasické posuvné systémy.
+                    </li>
+                    <li>
+                      <strong className="text-foreground font-medium">„Teplý" hliník</strong> – Vysoké tepelno- a zvukovoizolačné vlastnosti. Najlepšie riešenie pre vykurované miestnosti.
+                    </li>
+                  </ul>
 
-                <h4 className="text-xl font-semibold text-foreground mt-6">
-                  Rozdiel medzi „Studeným“ a „Teplým“ Hliníkom
-                </h4>
+                  <h3 className="text-lg font-medium text-foreground pt-2">
+                    Hliníkové Dvere a Priečky
+                  </h3>
 
-                <ul className="list-disc list-inside text-lg text-muted-foreground leading-relaxed ml-4 space-y-3">
-                  <li>
-                    <strong>„Studený“ hliník:</strong>
-                    <p className="ml-6 mt-1">
-                      Ideálny pre zasklievanie balkónov, ktoré nie sú rozšírením
-                      obytného priestoru, ako aj pre verandy, altánky a terasy.
-                      V zime poskytne len mierne vyššiu teplotu ako vonku, ale v
-                      lete sa priestor dá využiť ako oddychová miestnosť, malá
-                      záhrada, telocvičňa či pracovňa. Sú to{" "}
-                      <strong>cenovo dostupné klasické posuvné systémy</strong>,
-                      ktoré šetria priestor.
-                    </p>
-                  </li>
-                  <li>
-                    <strong>„Teplý“ hliník:</strong>
-                    <p className="ml-6 mt-1">
-                      Má{" "}
-                      <strong>
-                        vysoké tepelno- a zvukovoizolačné vlastnosti
-                      </strong>
-                      . Volí sa pre rodinné domy,{" "}
-                      <strong>panoramatické okná</strong> a komerčné priestory.
-                      Je to najlepšie riešenie zasklenia pre{" "}
-                      <strong>vykurované miestnosti</strong>.
-                    </p>
-                  </li>
-                </ul>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Hliníkové dvere majú množstvo výhod: odolnosť proti poškodeniu,
+                    minimalistický vzhľad, nenáročnosť na údržbu a možnosť farebného spracovania.
+                  </p>
 
-                <h3 className="text-xl font-semibold text-foreground mt-6">
-                  Hliníkové Dvere a Priečky
-                </h3>
+                  <h2 className="text-xl font-medium text-foreground pt-4">
+                    Hliníkový Profil Framex
+                  </h2>
 
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Hliníkové dvere majú množstvo výhod:{" "}
-                  <strong>odolnosť proti poškodeniu</strong>,{" "}
-                  <strong>minimalistický vzhľad</strong>, nenáročnosť na údržbu
-                  a možnosť farebného spracovania.
-                </p>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Pracujeme s hliníkovým profilom <strong className="text-foreground font-medium">Framex</strong> –
+                    kvalitný konštrukčný profil certifikovaný podľa európskych noriem.
+                  </p>
 
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Hliníkové dvere sa často inštalujú:
-                </p>
+                  <ul className="list-disc list-outside text-base text-muted-foreground leading-relaxed ml-5 space-y-1">
+                    <li><strong className="text-foreground font-medium">Ľahkosť a pevnosť</strong> – Ideálne pre trvanlivé a ľahké konštrukcie</li>
+                    <li><strong className="text-foreground font-medium">Odolnosť proti korózii</strong> – Eloxácia alebo práškové lakovanie</li>
+                    <li><strong className="text-foreground font-medium">Estetický vzhľad</strong> – Rozmanitosť farieb a textúr</li>
+                    <li><strong className="text-foreground font-medium">Ekologickosť</strong> – Plne recyklovateľný materiál</li>
+                  </ul>
 
-                <ul className="list-disc list-inside text-lg text-muted-foreground leading-relaxed ml-4">
-                  <li>Pri vchode do obchodných centier</li>
-                  <li>V zdravotníckych zariadeniach</li>
-                  <li>Na terasách kaviarní a reštaurácií</li>
-                  <li>V priemyselných priestoroch</li>
-                  <li>V bytoch a rodinných domoch</li>
-                </ul>
+                  <h3 className="text-lg font-medium text-foreground pt-6">
+                    Framex 38 – Studený Hliníkový Systém
+                  </h3>
 
-                <h4 className="text-xl font-semibold text-foreground mt-6">
-                  Hliníkové Priečky
-                </h4>
-
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Rozdelenie priestoru na zóny, regulácia osvetlenia, zníženie
-                  úrovne hluku a vytvorenie pracovnej atmosféry – to všetko
-                  ľahko dosiahnete inštaláciou{" "}
-                  <strong>hliníkových priečok</strong>.
-                </p>
-
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Ide o populárnu a finančne <strong>nenáročnú možnosť</strong>,
-                  ako vytvoriť nové pracovné zóny bez potreby stavania pevných
-                  (kapitálových) stien.
-                </p>
-
-                <h2 className="text-2xl font-semibold text-foreground mt-8">
-                  Hliníkový Profil Framex
-                </h2>
-
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Naša spoločnosť pracuje s hliníkovým profilom{" "}
-                  <strong>Framex</strong> – čo je kvalitný konštrukčný hliníkový
-                  profil používaný v stavebníctve, architektúre, nábytkárstve,
-                  fasádnych systémoch a reklamných konštrukciách. Výrobky sú
-                  certifikované v súlade s <strong>európskymi normami</strong>,
-                  čo zaručuje spoľahlivosť, trvácnosť a atraktívny vzhľad.
-                </p>
-
-                <h4 className="text-xl font-semibold text-foreground mt-6">
-                  Hlavné Výhody Hliníka Framex
-                </h4>
-
-                <ul className="list-disc list-inside text-lg text-muted-foreground leading-relaxed ml-4 space-y-3">
-                  <li>
-                    <strong>Ľahkosť a pevnosť:</strong> Vďaka vysokému pomeru
-                    pevnosti a hmotnosti je hliník ideálnou voľbou pre trvanlivé
-                    a ľahké konštrukcie.
-                  </li>
-                  <li>
-                    <strong>Odolnosť proti korózii:</strong> Špeciálna eloxácia
-                    (anodizácia) alebo práškové lakovanie poskytuje ochranu pred
-                    vlhkosťou a agresívnym prostredím.
-                  </li>
-                  <li>
-                    <strong>Estetický vzhľad:</strong> Hladký povrch,
-                    rozmanitosť farieb a textúr umožňujú vytvárať moderné a
-                    štýlové riešenia.
-                  </li>
-                  <li>
-                    <strong>Jednoduchá inštalácia:</strong> Hliníkové profily sa
-                    ľahko spracovávajú, rýchlo montujú a nevyžadujú špeciálnu
-                    starostlivosť.
-                  </li>
-                  <li>
-                    <strong>Ekologickosť:</strong> Hliník je plne
-                    recyklovateľný, čo ho robí šetrným k životnému prostrediu.
-                  </li>
-                </ul>
-
-                <h3 className="text-xl font-semibold text-foreground pt-10">
-                  Framex 38 – Studený Hliníkový Systém
-                </h3>
-
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Jedná sa o studený hliníkový systém (bez tepelnej bariéry),
-                  ktorý je určený pre konštrukcie s{" "}
-                  <strong>
-                    nízkymi požiadavkami na tepelnú a zvukovú izoláciu
-                  </strong>{" "}
-                  – napríklad pre nevykurované miestnosti, interiérové priečky
-                  alebo výklady.
-                </p>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Studený hliníkový systém určený pre konštrukcie s nízkymi požiadavkami
+                    na tepelnú izoláciu – nevykurované miestnosti, interiérové priečky alebo výklady.
+                  </p>
+                </div>
                 <TechnologyGrid technologies={technologies1} />
-                <h3 className="text-xl font-semibold text-foreground pt-10">
-                  Framex FT 72 – Teplý Hliníkový Systém
-                </h3>
+                
+                <div className="prose prose-lg max-w-none space-y-4">
+                  <h3 className="text-lg font-medium text-foreground pt-6">
+                    Framex FT 72 – Teplý Hliníkový Systém
+                  </h3>
 
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  <strong>Framex FT 72</strong> je spoľahlivý a energeticky
-                  účinný{" "}
-                  <strong>teplý hliníkový okenný a dverový systém</strong>. Je
-                  určený na výrobu okien, dverí a výkladov, ktoré vyžadujú{" "}
-                  <strong>vysokú tepelnú a zvukovú izoláciu</strong>, moderný
-                  dizajn a štýlový vzhľad.
-                </p>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    <strong className="text-foreground font-medium">Framex FT 72</strong> je spoľahlivý a energeticky
+                    účinný teplý hliníkový okenný a dverový systém s vysokou tepelnou a zvukovou izoláciou.
+                  </p>
+                </div>
                 <TechnologyGrid technologies={technologies2} />
               </div>
             </div>

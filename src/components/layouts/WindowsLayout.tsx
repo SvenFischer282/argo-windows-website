@@ -79,41 +79,36 @@ const WindowsLayout = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <ProductHero image={images[0]} alt={title} />
-              <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+              <div className="space-y-4">
+                <h1 className="text-3xl md:text-4xl font-semibold text-foreground">
                   Okná
                 </h1>
 
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Plastové okná sú veľmi obľúbené vďaka svojmu modernému dizajnu
-                  a vysokej praktickosti.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Nie je ich potrebné natierať a zároveň pôsobia esteticky a
-                  elegantne.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Spolupracujeme s výrobcom profilových systémov WDS, ktorého
-                  produkty prechádzajú dôslednou kontrolou kvality v každom
-                  kroku výroby.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Profilové systémy <strong>WDS</strong> sú vyrábané podľa
-                  medzinárodných a slovenských štandardov kvality, priamo pre
-                  klimatické podmienky Slovenska a slovenské domácnosti.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Tieto okná sú vyrobené z moderných, vysokotechnologických
-                  materiálov, ktoré ponúkajú vynikajúce úžitkové vlastnosti.
-                </p>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Plastové okná sú veľmi obľúbené vďaka svojmu modernému dizajnu
+                    a vysokej praktickosti. Nie je ich potrebné natierať a zároveň pôsobia esteticky a
+                    elegantne.
+                  </p>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Spolupracujeme s výrobcom profilových systémov <strong className="text-foreground font-medium">WDS</strong>, ktorého
+                    produkty prechádzajú dôslednou kontrolou kvality v každom
+                    kroku výroby.
+                  </p>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Profilové systémy <strong className="text-foreground font-medium">WDS</strong> sú vyrábané podľa
+                    medzinárodných a slovenských štandardov kvality, priamo pre
+                    klimatické podmienky Slovenska a slovenské domácnosti.
+                  </p>
+                </div>
               </div>
               <TechnologyGrid technologies={technologies} />
               {/* Technology Descriptions */}
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {technologies.map((tech, index) => (
-                  <div key={index} className="space-y-2">
-                    <h4 className="font-bold text-foreground">{tech.name}</h4>
-                    <p className="text-muted-foreground leading-relaxed">
+                  <div key={index} className="space-y-1">
+                    <h4 className="text-lg font-medium text-foreground">{tech.name}</h4>
+                    <p className="text-base text-muted-foreground leading-relaxed">
                       {tech.descriptionDetailed}
                     </p>
                   </div>
