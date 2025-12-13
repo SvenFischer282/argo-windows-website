@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import ProductCard from "@/components/ProductCard";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Accordion,
@@ -11,20 +11,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  ChevronRight,
-  RectangleHorizontal,
-  DoorOpen,
-  ArrowRightLeft,
-  Box,
-  Building2,
-  Warehouse,
-  Plus,
-  MapPin,
-  Calendar,
-  Mail,
-  Phone,
-} from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -33,6 +20,7 @@ import heroImage from "@/assets/hero-windows.jpg";
 import carouselImg1 from "@/assets/nase_sluzby/carousel_imgs/1.jpg";
 import carouselImg2 from "@/assets/nase_sluzby/carousel_imgs/2.jpg";
 import carouselImg3 from "@/assets/nase_sluzby/carousel_imgs/3.jpg";
+import OurProducts from "@/components/OurProducts";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -76,7 +64,10 @@ const ContactForm = () => {
         rows={4}
         className="bg-background"
       />
-      <Button type="submit" className="w-full bg-primary hover:bg-primary-hover">
+      <Button
+        type="submit"
+        className="w-full bg-primary hover:bg-primary-hover"
+      >
         Odoslať
       </Button>
     </form>
@@ -84,75 +75,6 @@ const ContactForm = () => {
 };
 
 const Index = () => {
-  const products = [
-    {
-      title: "Okná",
-      path: "/windows",
-      image:
-        "https://vesnyanka.com.ua/wp-content/uploads/2022/10/valeriy-lobanov-sCFjj3evA1s-unsplash-1-scaled.jpg",
-    },
-    {
-      title: "Dvere",
-      path: "/doors",
-      image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-    },
-    {
-      title: "Posuvné systémy",
-      path: "/sliding-systems",
-      image:
-        "https://vesnyanka.com.ua/wp-content/uploads/2025/03/83d2470a-7357-4e2a-a0fc-3524bcc91433.webp",
-    },
-    {
-      title: "Hliník",
-      path: "/aluminum",
-      image:
-        "https://vesnyanka.com.ua/wp-content/uploads/2025/03/DALL%C2%B7E-2025-03-31-21.43.31-A-modern-aluminum-and-glass-door-designed-for-contemporary-homes-and-commercial-spaces.-The-door-features-a-sleek-minimalistic-frame-with-a-large-gla.webp",
-    },
-    {
-      title: "Fasády",
-      path: "/facades",
-      image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
-    },
-  ];
-
-  const projects = [
-    {
-      title: "Rodinný dom - Bratislava",
-      description: "Kompletná výmena okien a dverí v rodinnom dome",
-      location: "Bratislava",
-      date: "2024",
-      category: "Okná a dvere",
-      image: heroImage,
-    },
-    {
-      title: "Administratívna budova",
-      description:
-        "Hliníková fasáda a posuvné systémy pre kancelárske priestory",
-      location: "Žilina",
-      date: "2024",
-      category: "Fasády",
-      image: heroImage,
-    },
-    {
-      title: "Bytový komplex",
-      description: "Montáž plastových okien v novostavbe bytového domu",
-      location: "Košice",
-      date: "2023",
-      category: "Okná",
-      image: heroImage,
-    },
-    {
-      title: "Rekonštrukcia vily",
-      description: "Luxusné hliníkové okná a posuvné dvere",
-      location: "Banská Bystrica",
-      date: "2023",
-      category: "Hliník",
-      image: heroImage,
-    },
-  ];
-
   return (
     <div className="min-h-screen flex flex-col pt-16">
       <Navigation />
@@ -189,35 +111,7 @@ const Index = () => {
         </div>
       </section> */}
 
-      {/* Products Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gradient">
-            Naše produkty
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-            {products.map((product) => (
-              <Link
-                key={product.path}
-                to={product.path}
-                className="group relative aspect-[3/4] overflow-hidden rounded-lg w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
-              >
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="text-lg md:text-xl font-semibold text-white">
-                    {product.title}
-                  </h3>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <OurProducts />
 
       {/* References Section */}
       {/* <section className="py-20 bg-muted">
@@ -396,7 +290,10 @@ const Index = () => {
                 <Card className="border-2 shadow-md">
                   <CardContent className="pt-6 space-y-4">
                     <div className="flex items-start gap-3">
-                      <MapPin className="text-primary mt-1 flex-shrink-0" size={20} />
+                      <MapPin
+                        className="text-primary mt-1 flex-shrink-0"
+                        size={20}
+                      />
                       <div>
                         <p className="font-semibold">Adresa</p>
                         <p className="text-sm text-muted-foreground">
@@ -405,17 +302,33 @@ const Index = () => {
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <Mail className="text-primary mt-1 flex-shrink-0" size={20} />
+                      <Mail
+                        className="text-primary mt-1 flex-shrink-0"
+                        size={20}
+                      />
                       <div>
                         <p className="font-semibold">Email</p>
-                        <a href="mailto:info@company.sk" className="text-sm text-muted-foreground hover:text-primary transition-colors">info@company.sk</a>
+                        <a
+                          href="mailto:info@company.sk"
+                          className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          info@company.sk
+                        </a>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <Phone className="text-primary mt-1 flex-shrink-0" size={20} />
+                      <Phone
+                        className="text-primary mt-1 flex-shrink-0"
+                        size={20}
+                      />
                       <div>
                         <p className="font-semibold">Telefón</p>
-                        <a href="tel:+421903468472" className="text-sm text-muted-foreground hover:text-primary transition-colors">+421 903 468 472</a>
+                        <a
+                          href="tel:+421903468472"
+                          className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          +421 903 468 472
+                        </a>
                       </div>
                     </div>
                   </CardContent>
