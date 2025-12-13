@@ -155,8 +155,8 @@ const Contact = () => {
                       <div>
                         <p className="font-medium text-foreground">Adresa</p>
                         <p className="text-muted-foreground">
-                          Hlavná 123<br />
-                          010 01 Žilina<br />
+                          Slovenská 256<br />
+                          05 321 Markušovce<br />
                           Slovenská republika
                         </p>
                       </div>
@@ -166,8 +166,8 @@ const Contact = () => {
                       <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-foreground">Telefón</p>
-                        <a href="tel:+421123456789" className="text-muted-foreground hover:text-primary transition-colors">
-                          +421 123 456 789
+                        <a href="tel:+421903468472" className="text-muted-foreground hover:text-primary transition-colors">
+                          +421 903 468 472
                         </a>
                       </div>
                     </div>
@@ -176,8 +176,8 @@ const Contact = () => {
                       <Mail className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-foreground">Email</p>
-                        <a href="mailto:info@okna.sk" className="text-muted-foreground hover:text-primary transition-colors">
-                          info@okna.sk
+                        <a href="mailto:info@company.sk" className="text-muted-foreground hover:text-primary transition-colors">
+                          info@company.sk
                         </a>
                       </div>
                     </div>

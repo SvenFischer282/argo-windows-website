@@ -408,14 +408,14 @@ const Index = () => {
                       <Mail className="text-primary mt-1 flex-shrink-0" size={20} />
                       <div>
                         <p className="font-semibold">Email</p>
-                        <p className="text-sm text-muted-foreground">info@company.sk</p>
+                        <a href="mailto:info@company.sk" className="text-sm text-muted-foreground hover:text-primary transition-colors">info@company.sk</a>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <Phone className="text-primary mt-1 flex-shrink-0" size={20} />
                       <div>
                         <p className="font-semibold">Telefón</p>
-                        <p className="text-sm text-muted-foreground">+421 903 468 472</p>
+                        <a href="tel:+421903468472" className="text-sm text-muted-foreground hover:text-primary transition-colors">+421 903 468 472</a>
                       </div>
                     </div>
                   </CardContent>
