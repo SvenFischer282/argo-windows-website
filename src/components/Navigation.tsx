@@ -44,10 +44,10 @@ const Navigation = () => {
             >
               <Link
                 to="/"
-                className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 relative ${
                   isActive("/") || isHomeDropdownActive()
-                    ? "bg-primary-foreground/20 border-b-2 border-primary-foreground"
-                    : "hover:bg-primary-hover"
+                    ? "text-primary-foreground after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-6 after:h-0.5 after:bg-primary-foreground/70 after:rounded-full"
+                    : "hover:bg-primary-foreground/10"
                 }`}
               >
                 Domov
@@ -93,10 +93,10 @@ const Navigation = () => {
             >
               <Link
                 to="/products"
-                className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 relative ${
                   isActive("/products") || isProductActive()
-                    ? "bg-primary-foreground/20 border-b-2 border-primary-foreground"
-                    : "hover:bg-primary-hover"
+                    ? "text-primary-foreground after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-6 after:h-0.5 after:bg-primary-foreground/70 after:rounded-full"
+                    : "hover:bg-primary-foreground/10"
                 }`}
               >
                 Produkty
@@ -136,10 +136,10 @@ const Navigation = () => {
 
             <Link
               to="/contact"
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 relative ${
                 isActive("/contact")
-                  ? "bg-primary-foreground/20 border-b-2 border-primary-foreground"
-                  : "hover:bg-primary-hover"
+                  ? "text-primary-foreground after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-6 after:h-0.5 after:bg-primary-foreground/70 after:rounded-full"
+                  : "hover:bg-primary-foreground/10"
               }`}
             >
               Kontakt
