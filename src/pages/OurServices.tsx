@@ -1,14 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import HeroCarousel from "@/components/HeroCarousel";
 import { Ruler, Wrench, Truck, Shield, HeadphonesIcon, FileCheck } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
 
 const carouselImages = [
   {
@@ -30,36 +23,6 @@ const carouselImages = [
 ];
 
 const OurServices = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (!api) return;
-
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap());
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
-
-  const scrollTo = useCallback(
-    (index: number) => {
-      api?.scrollTo(index);
-    },
-    [api]
-  );
 
   const services = [
     {
@@ -98,61 +61,7 @@ const OurServices = () => {
     <div className="min-h-screen flex flex-col overflow-x-hidden">
       <Navigation />
       
-      {/* Fullscreen Carousel */}
-      <section className="relative w-full" style={{ height: 'calc(100vh - 4rem)' }}>
-        <Carousel 
-          className="h-full w-full cursor-grab active:cursor-grabbing" 
-          opts={{ loop: true, dragFree: false }}
-          setApi={setApi}
-          plugins={[
-            Autoplay({
-              delay: 5000,
-              stopOnInteraction: true,
-            }),
-          ]}
-        >
-          <CarouselContent className="-ml-0" style={{ height: 'calc(100vh - 4rem)' }}>
-            {carouselImages.map((image, index) => (
-              <CarouselItem key={index} className="pl-0" style={{ height: 'calc(100vh - 4rem)' }}>
-                <div className="relative w-full overflow-hidden" style={{ height: 'calc(100vh - 4rem)' }}>
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-                  />
-                  <div className="absolute inset-0 bg-foreground/40 pointer-events-none" />
-                  <div 
-                    className="absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-500 ease-out will-change-transform"
-                    style={{ 
-                      transform: `translateY(${scrollY * 0.5}px)`,
-                      opacity: Math.max(0, 1 - scrollY / 400)
-                    }}
-                  >
-                    <div className="text-center text-background">
-                      <h2 className="text-4xl md:text-6xl font-bold mb-4">{image.alt}</h2>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-        {/* Dots indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
-          {Array.from({ length: count }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => scrollTo(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === current 
-                  ? "bg-background w-8" 
-                  : "bg-background/50 hover:bg-background/80"
-              }`}
-              aria-label={`Prejsť na slide ${index + 1}`}
-            />
-          ))}
-        </div>
-      </section>
+      <HeroCarousel images={carouselImages} />
 
       <main className="flex-grow">
         <div className="max-w-7xl mx-auto px-4 py-16">
