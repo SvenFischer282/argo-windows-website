@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -14,16 +13,6 @@ import carouselImg2 from "@/assets/nase_sluzby/carousel_imgs/2.jpg";
 import carouselImg3 from "@/assets/nase_sluzby/carousel_imgs/3.jpg";
 
 const Index = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const products = [
     { title: "Okná", icon: RectangleHorizontal, path: "/windows" },
     { title: "Dvere", icon: DoorOpen, path: "/doors" },
@@ -81,18 +70,12 @@ const Index = () => {
             { src: carouselImg2, alt: "" },
             { src: carouselImg3, alt: "" },
           ]}
-          height="calc(100vh - 4rem)"
+          height="600px"
           showParallax={false}
           showDots={true}
         />
-        {/* Static text overlay with parallax */}
-        <div 
-          className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-all duration-100 ease-out will-change-transform"
-          style={{
-            transform: `translateY(${scrollY * 0.5}px)`,
-            opacity: Math.max(0, 1 - scrollY / 400),
-          }}
-        >
+        {/* Static text overlay */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
           <div className="text-center text-background px-4 pointer-events-auto">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
               Lorem ipsum dolor sit amet
