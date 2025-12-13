@@ -44,12 +44,7 @@ const Production = () => {
             backgroundImage: `url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1920&q=80')`,
           }}
         />
-        <div className="absolute inset-0 bg-foreground/50" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-20 h-20 rounded-full bg-background/90 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
-            <div className="w-0 h-0 border-l-[20px] border-l-primary border-y-[12px] border-y-transparent ml-1" />
-          </div>
-        </div>
+        <div className="absolute inset-0 bg-foreground/30" />
       </section>
 
       <main className="flex-grow">
@@ -140,7 +135,7 @@ const Production = () => {
               </section>
 
               {/* Materials Section */}
-              <section className="bg-accent/30 rounded-xl p-8 md:p-12">
+              <section className="bg-accent/30 rounded-xl p-8 md:p-12 mb-16">
                 <h2 className="text-3xl font-bold text-center mb-8 text-foreground">
                   Používané materiály
                 </h2>
@@ -169,6 +164,22 @@ const Production = () => {
                       AGC, Guardian, Pilkington
                     </p>
                   </div>
+                </div>
+              </section>
+
+              {/* YouTube Video Section */}
+              <section>
+                <h2 className="text-3xl font-bold text-center mb-8 text-foreground">
+                  Pozrite si našu výrobu
+                </h2>
+                <div className="aspect-video w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Výroba okien"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
                 </div>
               </section>
             </div>
