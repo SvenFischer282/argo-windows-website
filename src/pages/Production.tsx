@@ -3,34 +3,34 @@ import Footer from "@/components/Footer";
 import { Factory, Cog, CheckCircle, Zap } from "lucide-react";
 
 const Production = () => {
-  const capabilities = [
+  const advantages = [
     {
       icon: Factory,
-      title: "Moderná výroba",
-      description: "Disponujeme moderným strojovým parkom pre presné a efektívne spracovanie profilov.",
+      title: "Bohaté skúsenosti",
+      description: "Dlhoročné skúsenosti s montážou a silné výrobné kapacity.",
     },
     {
       icon: Cog,
-      title: "Automatizované procesy",
-      description: "Využívame najnovšie CNC technológie pre maximálnu presnosť výroby.",
+      title: "Vysoká úroveň vybavenia",
+      description: "Robotizované zariadenia, laminačné linky, sklená linka, ohýbacie zariadenia, stanovisko kontroly kvality.",
     },
     {
       icon: CheckCircle,
-      title: "Kontrola kvality",
-      description: "Každý výrobok prechádza dôkladnou kontrolou pred expedíciou.",
+      title: "Neustály rozvoj",
+      description: "Každý rok zvyšujeme objem kvalitnej produkcie distribuovanej cez vlastnú a dílersku sieť.",
     },
     {
       icon: Zap,
-      title: "Rýchla výroba",
-      description: "Štandardné zákazky dokážeme vyrobiť do 2-3 týždňov.",
+      title: "Široký sortiment",
+      description: "Okná rôznych typov, ostenia, parapety, sieťky proti hmyzu, regulátory otvárania, detské zámky, materiály na údržbu.",
     },
   ];
 
   const stats = [
-    { number: "15+", label: "Rokov skúseností" },
+    { number: "20+", label: "Rokov skúseností" },
     { number: "10 000+", label: "Spokojných zákazníkov" },
     { number: "50 000+", label: "Vyrobených okien" },
-    { number: "100%", label: "Kontrola kvality" },
+    { number: "100%", label: "Európske štandardy" },
   ];
 
   return (
@@ -61,17 +61,20 @@ const Production = () => {
               {/* Production Header */}
               <section className="mb-16">
                 <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-foreground">
-                  Produkcia
+                  Výroba
                 </h1>
                 <div className="max-w-3xl mx-auto text-center">
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Naša výrobná hala je vybavená najmodernejšími technológiami pre výrobu plastových 
-                    a hliníkových okien, dverí a fasádnych systémov. Vďaka vlastnej výrobe vám garantujeme 
-                    najvyššiu kvalitu a flexibilitu pri realizácii vašich projektov.
+                    Pôsobíme v oblasti výroby a montáže okien od roku 2004, naša spoločnosť si získala 
+                    zaslúžené uznanie a dôveru mnohých klientov.
+                  </p>
+                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                    Vysoká úroveň technického vybavenia nášho výrobného závodu nám umožňuje 
+                    inštalovať plastové okná v súlade s európskymi normami.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    Spracovávame profily od renomovaných výrobcov ako WDS a ďalších európskych značiek, 
-                    čo zabezpečuje dlhú životnosť a spoľahlivosť našich výrobkov.
+                    Takýto arzenál moderného vybavenia nám umožňuje garantovať vysokú kvalitu 
+                    a dlhú životnosť všetkých produktov, ktoré ponúkame.
                   </p>
                 </div>
               </section>
@@ -92,33 +95,50 @@ const Production = () => {
                 </div>
               </section>
 
-              {/* Capabilities Grid */}
+              {/* Advantages Grid */}
               <section className="mb-16">
                 <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-                  Naše výrobné kapacity
+                  Naše výhody
                 </h2>
                 <div className="grid md:grid-cols-2 gap-8">
-                  {capabilities.map((capability, index) => (
+                  {advantages.map((advantage, index) => (
                     <div 
                       key={index}
                       className="p-6 bg-accent/30 rounded-lg hover-lift"
                     >
                       <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center mb-4">
-                        <capability.icon className="w-7 h-7 text-primary-foreground" />
+                        <advantage.icon className="w-7 h-7 text-primary-foreground" />
                       </div>
                       <h3 className="text-xl font-semibold mb-3 text-foreground">
-                        {capability.title}
+                        {advantage.title}
                       </h3>
                       <p className="text-muted-foreground">
-                        {capability.description}
+                        {advantage.description}
                       </p>
                     </div>
                   ))}
                 </div>
               </section>
 
+              {/* Services Section */}
+              <section className="bg-primary/5 rounded-xl p-8 md:p-12 mb-16">
+                <h2 className="text-3xl font-bold text-center mb-8 text-foreground">
+                  S nami pohodlne a výhodne
+                </h2>
+                <div className="max-w-3xl mx-auto text-center">
+                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                    Naša flexibilná cenová politika ponúka primerané ceny zodpovedajúce kvalite produktov. 
+                    Zľavy a akcie sú bonusom, ktorý nám umožňuje rozširovať sieť našich zákazníkov.
+                  </p>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Široká škála služieb zahŕňa zameranie, doručenie hotových produktov a kvalifikovanú montáž okien. 
+                    To umožňuje našim klientom zbaviť sa zbytočných starostí a získať vynikajúci konečný výsledok.
+                  </p>
+                </div>
+              </section>
+
               {/* Materials Section */}
-              <section className="bg-primary/5 rounded-xl p-8 md:p-12">
+              <section className="bg-accent/30 rounded-xl p-8 md:p-12">
                 <h2 className="text-3xl font-bold text-center mb-8 text-foreground">
                   Používané materiály
                 </h2>
