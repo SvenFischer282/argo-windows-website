@@ -18,8 +18,6 @@ const Navigation = () => {
     { label: "Posuvné systémy", path: "/sliding-systems" },
     { label: "Hliník", path: "/aluminum" },
     { label: "Fasády", path: "/facades" },
-    { label: "Garážové brány a žalúzie", path: "/garage-systems" },
-    { label: "Doplnkové prvky", path: "/additional-elements" },
   ];
 
   return (
@@ -38,19 +36,19 @@ const Navigation = () => {
             >
               Domov
             </Link>
-            
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button 
-                  variant="ghost" 
+                <Button
+                  variant="ghost"
                   className="text-primary-foreground hover:bg-primary-hover font-medium"
                 >
                   Produkty
                   <ChevronDown className="ml-1 h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent 
-                align="start" 
+              <DropdownMenuContent
+                align="start"
                 className="w-56 bg-background border-border shadow-lg z-50"
               >
                 {products.map((product) => (
