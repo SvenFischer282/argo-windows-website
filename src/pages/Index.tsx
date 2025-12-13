@@ -95,6 +95,10 @@ const Index = () => {
           { src: carouselImg3, alt: "" },
         ]}
         height="calc(100vh - 4rem)"
+        staticText={{
+          title: "Kvalitné okná a dvere",
+          subtitle: "Viac ako 20 rokov skúseností s výrobou a montážou okien, dverí a fasád"
+        }}
       />
 
       {/* About Section */}
