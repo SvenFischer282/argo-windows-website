@@ -5,24 +5,23 @@ import { Factory, Cog, CheckCircle, Zap } from "lucide-react";
 const Production = () => {
   const advantages = [
     {
-      icon: Factory,
       title: "Bohaté skúsenosti",
       description: "Dlhoročné skúsenosti s montážou a silné výrobné kapacity.",
     },
     {
-      icon: Cog,
       title: "Vysoká úroveň vybavenia",
-      description: "Robotizované zariadenia, laminačné linky, sklená linka, ohýbacie zariadenia, stanovisko kontroly kvality.",
+      description:
+        "Robotizované zariadenia, laminačné linky, sklená linka, ohýbacie zariadenia, stanovisko kontroly kvality.",
     },
     {
-      icon: CheckCircle,
       title: "Neustály rozvoj",
-      description: "Každý rok zvyšujeme objem kvalitnej produkcie distribuovanej cez vlastnú a dílersku sieť.",
+      description:
+        "Každý rok zvyšujeme objem kvalitnej produkcie distribuovanej cez vlastnú a dílersku sieť.",
     },
     {
-      icon: Zap,
       title: "Široký sortiment",
-      description: "Okná rôznych typov, ostenia, parapety, sieťky proti hmyzu, regulátory otvárania, detské zámky, materiály na údržbu.",
+      description:
+        "Okná rôznych typov, ostenia, parapety, sieťky proti hmyzu, regulátory otvárania, detské zámky, materiály na údržbu.",
     },
   ];
 
@@ -36,10 +35,10 @@ const Production = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] max-h-[600px] overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1920&q=80')`,
@@ -61,20 +60,23 @@ const Production = () => {
               {/* Production Header */}
               <section className="mb-16">
                 <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-foreground">
-                  Výroba
+                  Produkcia
                 </h1>
                 <div className="max-w-3xl mx-auto text-center">
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Pôsobíme v oblasti výroby a montáže okien od roku 2004, naša spoločnosť si získala 
-                    zaslúžené uznanie a dôveru mnohých klientov.
+                    Pôsobíme v oblasti výroby a montáže okien od roku 2004, naša
+                    spoločnosť si získala zaslúžené uznanie a dôveru mnohých
+                    klientov.
                   </p>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Vysoká úroveň technického vybavenia nášho výrobného závodu nám umožňuje 
-                    inštalovať plastové okná v súlade s európskymi normami.
+                    Vysoká úroveň technického vybavenia nášho výrobného závodu
+                    nám umožňuje inštalovať plastové okná v súlade s európskymi
+                    normami.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    Takýto arzenál moderného vybavenia nám umožňuje garantovať vysokú kvalitu 
-                    a dlhú životnosť všetkých produktov, ktoré ponúkame.
+                    Takýto arzenál moderného vybavenia nám umožňuje garantovať
+                    vysokú kvalitu a dlhú životnosť všetkých produktov, ktoré
+                    ponúkame.
                   </p>
                 </div>
               </section>
@@ -102,13 +104,10 @@ const Production = () => {
                 </h2>
                 <div className="grid md:grid-cols-2 gap-8">
                   {advantages.map((advantage, index) => (
-                    <div 
+                    <div
                       key={index}
                       className="p-6 bg-accent/30 rounded-lg hover-lift"
                     >
-                      <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center mb-4">
-                        <advantage.icon className="w-7 h-7 text-primary-foreground" />
-                      </div>
                       <h3 className="text-xl font-semibold mb-3 text-foreground">
                         {advantage.title}
                       </h3>
@@ -127,12 +126,15 @@ const Production = () => {
                 </h2>
                 <div className="max-w-3xl mx-auto text-center">
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Naša flexibilná cenová politika ponúka primerané ceny zodpovedajúce kvalite produktov. 
-                    Zľavy a akcie sú bonusom, ktorý nám umožňuje rozširovať sieť našich zákazníkov.
+                    Naša flexibilná cenová politika ponúka primerané ceny
+                    zodpovedajúce kvalite produktov. Zľavy a akcie sú bonusom,
+                    ktorý nám umožňuje rozširovať sieť našich zákazníkov.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    Široká škála služieb zahŕňa zameranie, doručenie hotových produktov a kvalifikovanú montáž okien. 
-                    To umožňuje našim klientom zbaviť sa zbytočných starostí a získať vynikajúci konečný výsledok.
+                    Široká škála služieb zahŕňa zameranie, doručenie hotových
+                    produktov a kvalifikovanú montáž okien. To umožňuje našim
+                    klientom zbaviť sa zbytočných starostí a získať vynikajúci
+                    konečný výsledok.
                   </p>
                 </div>
               </section>
@@ -144,21 +146,32 @@ const Production = () => {
                 </h2>
                 <div className="grid md:grid-cols-3 gap-6 text-center">
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-foreground mb-2">PVC profily</h3>
-                    <p className="text-muted-foreground">WDS, Salamander, VEKA</p>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                      PVC profily
+                    </h3>
+                    <p className="text-muted-foreground">
+                      WDS, Salamander, VEKA
+                    </p>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-foreground mb-2">Hliníkové systémy</h3>
-                    <p className="text-muted-foreground">Framex, Aluprof, Schüco</p>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                      Hliníkové systémy
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Framex, Aluprof, Schüco
+                    </p>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-foreground mb-2">Zasklenie</h3>
-                    <p className="text-muted-foreground">AGC, Guardian, Pilkington</p>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                      Zasklenie
+                    </h3>
+                    <p className="text-muted-foreground">
+                      AGC, Guardian, Pilkington
+                    </p>
                   </div>
                 </div>
               </section>
             </div>
-
           </div>
         </div>
       </main>
