@@ -18,6 +18,10 @@ interface HeroCarouselProps {
   autoplayDelay?: number;
   showParallax?: boolean;
   showDots?: boolean;
+  staticText?: {
+    title: string;
+    subtitle?: string;
+  };
 }
 
 const HeroCarousel = ({
@@ -26,6 +30,7 @@ const HeroCarousel = ({
   autoplayDelay = 5000,
   showParallax = true,
   showDots = true,
+  staticText,
 }: HeroCarouselProps) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -83,26 +88,49 @@ const HeroCarousel = ({
                   className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                 />
                 <div className="absolute inset-0 bg-foreground/40 pointer-events-none" />
-                <div
-                  className="absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-500 ease-out will-change-transform"
-                  style={
-                    showParallax
-                      ? {
-                          transform: `translateY(${scrollY * 0.5}px)`,
-                          opacity: Math.max(0, 1 - scrollY / 400),
-                        }
-                      : undefined
-                  }
-                >
-                  <div className="text-center text-background">
-                    <h2 className="text-4xl md:text-6xl font-bold mb-4">{image.alt}</h2>
+                {!staticText && (
+                  <div
+                    className="absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-500 ease-out will-change-transform"
+                    style={
+                      showParallax
+                        ? {
+                            transform: `translateY(${scrollY * 0.5}px)`,
+                            opacity: Math.max(0, 1 - scrollY / 400),
+                          }
+                        : undefined
+                    }
+                  >
+                    <div className="text-center text-background">
+                      <h2 className="text-4xl md:text-6xl font-bold mb-4">{image.alt}</h2>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
+
+      {staticText && (
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-500 ease-out will-change-transform z-10"
+          style={
+            showParallax
+              ? {
+                  transform: `translateY(${scrollY * 0.5}px)`,
+                  opacity: Math.max(0, 1 - scrollY / 400),
+                }
+              : undefined
+          }
+        >
+          <div className="text-center text-background px-4">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">{staticText.title}</h1>
+            {staticText.subtitle && (
+              <p className="text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto">{staticText.subtitle}</p>
+            )}
+          </div>
+        </div>
+      )}
       
       {showDots && (
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
