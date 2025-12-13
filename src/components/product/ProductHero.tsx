@@ -9,7 +9,8 @@ const ProductHero = ({ image, alt }: ProductHeroProps) => {
       <img
         src={image}
         alt={alt}
-        // className="w-full h-[90vh] min-h-[500px] max-h-[800px] object-cover"
+        loading="lazy"
+        className="w-full h-[90vh] min-h-[500px] max-h-[800px] object-cover"
       />
     </div>
   );

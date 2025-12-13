@@ -40,9 +40,8 @@ const TechnologyGrid = ({ technologies }: TechnologyGridProps) => {
                 <img
                   src={tech.image}
                   alt={tech.name}
-                  // Note: 'h-max-48' isn't a standard Tailwind class. Assuming 'max-h-48' or similar.
-                  // For the purposes of this fix, I'll keep the original property name but it's worth checking.
-                  className="h-max-48 object-contain"
+                  loading="lazy"
+                  className="max-h-48 object-contain"
                 />
               </div>
               <h4 className="font-bold text-foreground text-sm md:text-base">

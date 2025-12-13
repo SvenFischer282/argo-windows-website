@@ -75,6 +75,7 @@ const ProductLayout = ({
                 <img
                   src={images[0]}
                   alt={title}
+                  loading="lazy"
                   className="w-full h-[600px] object-cover"
                 />
               </div>
@@ -117,6 +118,7 @@ const ProductLayout = ({
                           <img
                             src={tech.image}
                             alt={tech.name}
+                            loading="lazy"
                             className="max-h-32 object-contain"
                           />
                         </div>
@@ -204,6 +206,7 @@ const ProductLayout = ({
                         <img
                           src={image}
                           alt={`${title} ${index + 2}`}
+                          loading="lazy"
                           className="w-full h-full object-cover"
                         />
                       </div>
