@@ -3,23 +3,9 @@ import Footer from "@/components/Footer";
 import ContactSidebar from "@/components/ContactSidebar";
 import ProductBreadcrumb from "@/components/product/ProductBreadcrumb";
 import ProductHero from "@/components/product/ProductHero";
-import ProductDescription from "@/components/product/ProductDescription";
-import TechnologyGrid from "@/components/product/TechnologyGrid";
-
-import ProductGallery from "@/components/product/ProductGallery";
 
 const FacadesLayout = () => {
   const title = "Fasády";
-
-  const description =
-    "Moderné fasádne systémy pre komerčné a administratívne budovy. Kombinácia estetiky a funkčnosti, ktorá vytvára impozantný vzhľad budovy pri zachovaní vynikajúcich tepelno-izolačných vlastností. Naše fasádne systémy sú navrhnuté pre maximálnu energetickú účinnosť.";
-
-  const features = [
-    "Skeleto-oblúkové fasády",
-    "Hliníkové fasády",
-    "Ventilované fasády",
-    "Atypické riešenia",
-  ];
 
   const technologies = [
     {

@@ -5,20 +5,8 @@ import ProductBreadcrumb from "@/components/product/ProductBreadcrumb";
 import ProductHero from "@/components/product/ProductHero";
 import TechnologyGrid from "@/components/product/TechnologyGrid";
 
-import ProductGallery from "@/components/product/ProductGallery";
-
 const SlidingSystemsLayout = () => {
   const title = "Posuvné systémy";
-
-  const description =
-    "Moderné posuvné systémy pre terasy a balkóny, ktoré spájajú eleganciu s funkčnosťou. Ideálne riešenie pre maximalizáciu priestoru a vytvorenie plynulého prechodu medzi interiérom a exteriérom. Posuvné systémy umožňujú maximálne presvetlenie a otvorenie priestoru.";
-
-  const features = [
-    "Posuvné steny",
-    "Terasové systémy",
-    "Balkónové zasklenie",
-    "Zimné záhrady",
-  ];
 
   const technologies = [
     {
