@@ -3,11 +3,7 @@ import Footer from "@/components/Footer";
 import ContactSidebar from "@/components/ContactSidebar";
 import ProductBreadcrumb from "@/components/product/ProductBreadcrumb";
 import ProductHero from "@/components/product/ProductHero";
-import ProductDescription from "@/components/product/ProductDescription";
 import TechnologyGrid from "@/components/product/TechnologyGrid";
-
-import ProductGallery from "@/components/product/ProductGallery";
-import heroImage from "@/assets/hero-windows.jpg";
 
 const WindowsLayout = () => {
   const title = "Okná";
