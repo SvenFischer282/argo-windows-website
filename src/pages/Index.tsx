@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Accordion,
   AccordionContent,
@@ -20,14 +22,66 @@ import {
   Plus,
   MapPin,
   Calendar,
-  Contact,
+  Mail,
+  Phone,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 import HeroCarousel from "@/components/HeroCarousel";
 import heroImage from "@/assets/hero-windows.jpg";
 import carouselImg1 from "@/assets/nase_sluzby/carousel_imgs/1.jpg";
 import carouselImg2 from "@/assets/nase_sluzby/carousel_imgs/2.jpg";
 import carouselImg3 from "@/assets/nase_sluzby/carousel_imgs/3.jpg";
+
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const { toast } = useToast();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Správa odoslaná",
+      description: "Čoskoro vás budeme kontaktovať.",
+    });
+    setFormData({ name: "", email: "", message: "" });
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <Input
+        placeholder="Meno"
+        value={formData.name}
+        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+        required
+        className="bg-background"
+      />
+      <Input
+        type="email"
+        placeholder="Email"
+        value={formData.email}
+        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+        required
+        className="bg-background"
+      />
+      <Textarea
+        placeholder="Správa"
+        value={formData.message}
+        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+        required
+        rows={4}
+        className="bg-background"
+      />
+      <Button type="submit" className="w-full bg-primary hover:bg-primary-hover">
+        Odoslať
+      </Button>
+    </form>
+  );
+};
 
 const Index = () => {
   const products = [
@@ -315,6 +369,59 @@ const Index = () => {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-20 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12 text-gradient">
+              Kontaktujte nás
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Contact Form */}
+              <Card className="border-2 shadow-md">
+                <CardHeader className="bg-primary text-primary-foreground">
+                  <CardTitle className="text-xl">Napíšte nám</CardTitle>
+                </CardHeader>
+                <CardContent className="pt-6">
+                  <ContactForm />
+                </CardContent>
+              </Card>
+
+              {/* Contact Information */}
+              <div className="space-y-6">
+                <Card className="border-2 shadow-md">
+                  <CardContent className="pt-6 space-y-4">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="text-primary mt-1 flex-shrink-0" size={20} />
+                      <div>
+                        <p className="font-semibold">Adresa</p>
+                        <p className="text-sm text-muted-foreground">
+                          Slovenská 256, 05 321 Markušovce
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Mail className="text-primary mt-1 flex-shrink-0" size={20} />
+                      <div>
+                        <p className="font-semibold">Email</p>
+                        <p className="text-sm text-muted-foreground">info@company.sk</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Phone className="text-primary mt-1 flex-shrink-0" size={20} />
+                      <div>
+                        <p className="font-semibold">Telefón</p>
+                        <p className="text-sm text-muted-foreground">+421 903 468 472</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
