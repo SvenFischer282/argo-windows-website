@@ -99,7 +99,7 @@ const OurServices = () => {
       <Navigation />
       
       {/* Fullscreen Carousel */}
-      <section className="relative h-[calc(100vh-4rem)] w-screen">
+      <section className="relative w-full" style={{ height: 'calc(100vh - 4rem)' }}>
         <Carousel 
           className="h-full w-full cursor-grab active:cursor-grabbing" 
           opts={{ loop: true, dragFree: false }}
@@ -111,10 +111,10 @@ const OurServices = () => {
             }),
           ]}
         >
-          <CarouselContent className="h-full -ml-0">
+          <CarouselContent className="-ml-0" style={{ height: 'calc(100vh - 4rem)' }}>
             {carouselImages.map((image, index) => (
-              <CarouselItem key={index} className="h-full pl-0">
-                <div className="relative h-full w-screen overflow-hidden">
+              <CarouselItem key={index} className="pl-0" style={{ height: 'calc(100vh - 4rem)' }}>
+                <div className="relative w-full overflow-hidden" style={{ height: 'calc(100vh - 4rem)' }}>
                   <img
                     src={image.src}
                     alt={image.alt}
