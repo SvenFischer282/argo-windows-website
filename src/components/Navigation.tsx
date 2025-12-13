@@ -2,15 +2,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [homeDropdownOpen, setHomeDropdownOpen] = useState(false);
+  const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
 
   const products = [
     { label: "Okná", path: "/windows" },
@@ -18,6 +14,12 @@ const Navigation = () => {
     { label: "Posuvné systémy", path: "/sliding-systems" },
     { label: "Hliník", path: "/aluminum" },
     { label: "Fasády", path: "/facades" },
+  ];
+
+  const homeLinks = [
+    { label: "O nás", path: "/about-us" },
+    { label: "Naše služby", path: "/our-services" },
+    { label: "Produkcia", path: "/production" },
   ];
 
   return (
@@ -29,80 +31,61 @@ const Navigation = () => {
           </Link>
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* <Link
-              to="/"
-              className="px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-hover transition-colors"
+            {/* Home Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setHomeDropdownOpen(true)}
+              onMouseLeave={() => setHomeDropdownOpen(false)}
             >
-              Domov
-            </Link> */}
-
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="text-primary-foreground hover:bg-primary-hover font-medium"
-                >
-                  Domov
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                align="start"
-                className="w-56 bg-background border-border shadow-lg z-50"
+              <Link
+                to="/"
+                className="flex items-center px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-hover transition-colors"
               >
-                <DropdownMenuItem>
-                  <Link
-                    to={"/about-us"}
-                    className="w-full cursor-pointer hover:bg-accent"
-                  >
-                    {"O nás"}
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link
-                    to={"/our-services"}
-                    className="w-full cursor-pointer hover:bg-accent"
-                  >
-                    {"Naše služby"}
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link
-                    to={"/production"}
-                    className="w-full cursor-pointer hover:bg-accent"
-                  >
-                    {"Produkcia"}
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="text-primary-foreground hover:bg-primary-hover font-medium"
-                >
-                  Produkty
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                align="start"
-                className="w-56 bg-background border-border shadow-lg z-50"
-              >
-                {products.map((product) => (
-                  <DropdownMenuItem key={product.path} asChild>
+                Domov
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </Link>
+              {homeDropdownOpen && (
+                <div className="absolute top-full left-0 w-56 bg-background border border-border shadow-lg rounded-md py-1 z-50">
+                  {homeLinks.map((link) => (
                     <Link
+                      key={link.path}
+                      to={link.path}
+                      className="block px-4 py-2 text-sm text-foreground hover:bg-accent transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Products Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setProductsDropdownOpen(true)}
+              onMouseLeave={() => setProductsDropdownOpen(false)}
+            >
+              <Link
+                to="/windows"
+                className="flex items-center px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-hover transition-colors"
+              >
+                Produkty
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </Link>
+              {productsDropdownOpen && (
+                <div className="absolute top-full left-0 w-56 bg-background border border-border shadow-lg rounded-md py-1 z-50">
+                  {products.map((product) => (
+                    <Link
+                      key={product.path}
                       to={product.path}
-                      className="w-full cursor-pointer hover:bg-accent"
+                      className="block px-4 py-2 text-sm text-foreground hover:bg-accent transition-colors"
                     >
                       {product.label}
                     </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <Link
               to="/contact"
@@ -132,6 +115,16 @@ const Navigation = () => {
             >
               Domov
             </Link>
+            {homeLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="block px-4 py-2 pl-8 text-sm font-medium hover:bg-primary-hover rounded-md transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
             <div className="px-4 py-2 text-sm font-semibold text-primary-foreground/80">
               Produkty
             </div>
