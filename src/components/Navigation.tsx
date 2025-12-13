@@ -39,24 +39,33 @@ const Navigation = () => {
             >
               <Link
                 to="/"
-                className="flex items-center px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-hover transition-colors"
+                className="flex items-center px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-hover transition-all duration-300"
               >
                 Domov
-                <ChevronDown className="ml-1 h-4 w-4" />
+                <ChevronDown 
+                  className={`ml-1 h-4 w-4 transition-transform duration-300 ease-out ${
+                    homeDropdownOpen ? "rotate-180" : "rotate-0"
+                  }`} 
+                />
               </Link>
-              {homeDropdownOpen && (
-                <div className="absolute top-full left-0 w-56 bg-background border border-border shadow-lg rounded-md py-1 z-50">
-                  {homeLinks.map((link) => (
-                    <Link
-                      key={link.path}
-                      to={link.path}
-                      className="block px-4 py-2 text-sm text-foreground hover:bg-accent transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <div 
+                className={`absolute top-full left-0 w-56 bg-background border border-border shadow-lg rounded-md py-1 z-50 transition-all duration-300 ease-out origin-top ${
+                  homeDropdownOpen 
+                    ? "opacity-100 scale-y-100 translate-y-0" 
+                    : "opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
+                }`}
+              >
+                {homeLinks.map((link, index) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className="block px-4 py-2 text-sm text-foreground hover:bg-accent transition-colors duration-200"
+                    style={{ transitionDelay: homeDropdownOpen ? `${index * 50}ms` : "0ms" }}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* Products Dropdown */}
@@ -67,29 +76,38 @@ const Navigation = () => {
             >
               <Link
                 to="/windows"
-                className="flex items-center px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-hover transition-colors"
+                className="flex items-center px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-hover transition-all duration-300"
               >
                 Produkty
-                <ChevronDown className="ml-1 h-4 w-4" />
+                <ChevronDown 
+                  className={`ml-1 h-4 w-4 transition-transform duration-300 ease-out ${
+                    productsDropdownOpen ? "rotate-180" : "rotate-0"
+                  }`} 
+                />
               </Link>
-              {productsDropdownOpen && (
-                <div className="absolute top-full left-0 w-56 bg-background border border-border shadow-lg rounded-md py-1 z-50">
-                  {products.map((product) => (
-                    <Link
-                      key={product.path}
-                      to={product.path}
-                      className="block px-4 py-2 text-sm text-foreground hover:bg-accent transition-colors"
-                    >
-                      {product.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <div 
+                className={`absolute top-full left-0 w-56 bg-background border border-border shadow-lg rounded-md py-1 z-50 transition-all duration-300 ease-out origin-top ${
+                  productsDropdownOpen 
+                    ? "opacity-100 scale-y-100 translate-y-0" 
+                    : "opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
+                }`}
+              >
+                {products.map((product, index) => (
+                  <Link
+                    key={product.path}
+                    to={product.path}
+                    className="block px-4 py-2 text-sm text-foreground hover:bg-accent transition-colors duration-200"
+                    style={{ transitionDelay: productsDropdownOpen ? `${index * 50}ms` : "0ms" }}
+                  >
+                    {product.label}
+                  </Link>
+                ))}
+              </div>
             </div>
 
             <Link
               to="/contact"
-              className="px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-hover transition-colors"
+              className="px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-hover transition-all duration-300"
             >
               Kontakt
             </Link>
@@ -98,55 +116,59 @@ const Navigation = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden text-primary-foreground hover:bg-primary-hover"
+            className="md:hidden text-primary-foreground hover:bg-primary-hover transition-all duration-300"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            <div className={`transition-transform duration-300 ${isOpen ? "rotate-90" : "rotate-0"}`}>
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </div>
           </Button>
         </div>
 
         {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden pb-4">
+        <div 
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${
+            isOpen ? "max-h-[500px] opacity-100 pb-4" : "max-h-0 opacity-0"
+          }`}
+        >
+          <Link
+            to="/"
+            className="block px-4 py-2 text-sm font-medium hover:bg-primary-hover rounded-md transition-colors duration-200"
+            onClick={() => setIsOpen(false)}
+          >
+            Domov
+          </Link>
+          {homeLinks.map((link) => (
             <Link
-              to="/"
-              className="block px-4 py-2 text-sm font-medium hover:bg-primary-hover rounded-md transition-colors"
+              key={link.path}
+              to={link.path}
+              className="block px-4 py-2 pl-8 text-sm font-medium hover:bg-primary-hover rounded-md transition-colors duration-200"
               onClick={() => setIsOpen(false)}
             >
-              Domov
+              {link.label}
             </Link>
-            {homeLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="block px-4 py-2 pl-8 text-sm font-medium hover:bg-primary-hover rounded-md transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="px-4 py-2 text-sm font-semibold text-primary-foreground/80">
-              Produkty
-            </div>
-            {products.map((product) => (
-              <Link
-                key={product.path}
-                to={product.path}
-                className="block px-4 py-2 pl-8 text-sm font-medium hover:bg-primary-hover rounded-md transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {product.label}
-              </Link>
-            ))}
-            <Link
-              to="/contact"
-              className="block px-4 py-2 text-sm font-medium hover:bg-primary-hover rounded-md transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Kontakt
-            </Link>
+          ))}
+          <div className="px-4 py-2 text-sm font-semibold text-primary-foreground/80">
+            Produkty
           </div>
-        )}
+          {products.map((product) => (
+            <Link
+              key={product.path}
+              to={product.path}
+              className="block px-4 py-2 pl-8 text-sm font-medium hover:bg-primary-hover rounded-md transition-colors duration-200"
+              onClick={() => setIsOpen(false)}
+            >
+              {product.label}
+            </Link>
+          ))}
+          <Link
+            to="/contact"
+            className="block px-4 py-2 text-sm font-medium hover:bg-primary-hover rounded-md transition-colors duration-200"
+            onClick={() => setIsOpen(false)}
+          >
+            Kontakt
+          </Link>
+        </div>
       </div>
     </nav>
   );
