@@ -1,6 +1,30 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Ruler, Wrench, Truck, Shield, HeadphonesIcon, FileCheck } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+
+const carouselImages = [
+  {
+    src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80",
+    alt: "Profesionálna montáž okien",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=1920&q=80",
+    alt: "Zameranie a konzultácia",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80",
+    alt: "Moderné riešenia pre váš domov",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80",
+    alt: "Kvalitné okná a dvere",
+  },
+];
 
 const OurServices = () => {
   const services = [
@@ -40,19 +64,32 @@ const OurServices = () => {
     <div className="min-h-screen flex flex-col">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] max-h-[600px] overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80')`,
-          }}
-        />
-        <div className="absolute inset-0 bg-foreground/50" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-20 h-20 rounded-full bg-background/90 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
-            <div className="w-0 h-0 border-l-[20px] border-l-primary border-y-[12px] border-y-transparent ml-1" />
-          </div>
+      {/* Fullscreen Carousel */}
+      <section className="relative h-screen w-screen">
+        <Carousel className="h-full w-full" opts={{ loop: true, dragFree: false }}>
+          <CarouselContent className="h-full -ml-0">
+            {carouselImages.map((image, index) => (
+              <CarouselItem key={index} className="h-full pl-0">
+                <div className="relative h-screen w-screen">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-foreground/40" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center text-background">
+                      <h2 className="text-4xl md:text-6xl font-bold mb-4">{image.alt}</h2>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+        {/* Slide indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          <span className="text-background/80 text-sm">← Swipe to navigate →</span>
         </div>
       </section>
 
