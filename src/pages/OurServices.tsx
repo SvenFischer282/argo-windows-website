@@ -33,6 +33,15 @@ const OurServices = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (!api) return;
@@ -86,7 +95,7 @@ const OurServices = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <Navigation />
       
       {/* Fullscreen Carousel */}
@@ -105,11 +114,12 @@ const OurServices = () => {
           <CarouselContent className="h-full -ml-0">
             {carouselImages.map((image, index) => (
               <CarouselItem key={index} className="h-full pl-0">
-                <div className="relative h-screen w-screen">
+                <div className="relative h-screen w-screen overflow-hidden">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                    className="absolute inset-0 w-full h-[120%] object-cover pointer-events-none transition-transform duration-100"
+                    style={{ transform: `translateY(${scrollY * 0.3}px)` }}
                   />
                   <div className="absolute inset-0 bg-foreground/40 pointer-events-none" />
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
