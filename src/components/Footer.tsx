@@ -19,15 +19,15 @@ const Footer = () => {
             <div className="space-y-3 text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Phone size={18} className="text-primary" />
-                <span>+421 XXX XXX XXX</span>
+                <a href="tel:+421903468472" className="hover:text-primary transition-colors">+421 903 468 472</a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={18} className="text-primary" />
-                <span>info@company.sk</span>
+                <a href="mailto:info@company.sk" className="hover:text-primary transition-colors">info@company.sk</a>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={18} className="text-primary" />
-                <span>Lorem ipsum 123, Bratislava</span>
+                <span>Slovenská 256, 05 321 Markušovce</span>
               </div>
             </div>
           </div>
