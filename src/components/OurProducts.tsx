@@ -7,12 +7,13 @@ const OurProducts = () => {
       title: "Okná",
       path: "/windows",
       image:
-        "https://vesnyanka.com.ua/wp-content/uploads/2022/10/valeriy-lobanov-sCFjj3evA1s-unsplash-1-scaled.jpg",
+        "https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/okna/okno.jpg",
     },
     {
       title: "Dvere",
       path: "/doors",
-      image: "https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/okna/glass_door_image.jpg",
+      image:
+        "https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/okna/dvere.jpg",
     },
     {
       title: "Posuvné systémy",
@@ -30,16 +31,14 @@ const OurProducts = () => {
       title: "Fasády",
       path: "/facades",
       image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+        "https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/okna/luxury-holiday-home.jpg",
     },
   ];
-  
+
   return (
     <section className="section-padding bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-center mb-16 text-foreground">
-          Naše produkty
-        </h2>
+        <h2 className="text-center mb-16 text-foreground">Naše produkty</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-7xl mx-auto">
           {products.map((product, index) => (
             <AnimatedSection key={product.path} delay={index * 100}>
