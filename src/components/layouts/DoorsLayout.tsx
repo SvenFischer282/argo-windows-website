@@ -4,6 +4,7 @@ import ContactSidebar from "@/components/ContactSidebar";
 import ProductBreadcrumb from "@/components/product/ProductBreadcrumb";
 import ProductHero from "@/components/product/ProductHero";
 import TechnologyGrid from "@/components/product/TechnologyGrid";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const DoorsLayout = () => {
   const title = "Dvere";
@@ -34,175 +35,160 @@ const DoorsLayout = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-muted/30 pt-16">
+    <div className="min-h-screen flex flex-col bg-background pt-16">
       <Navigation />
 
-      <main className="flex-1 animate-fade-in">
-        <div className="container mx-auto px-4 py-8">
-          <ProductBreadcrumb title={title} />
+      <main className="flex-1">
+        <div className="container mx-auto px-4 py-16 md:py-24">
+          <AnimatedSection>
+            <ProductBreadcrumb title={title} />
+          </AnimatedSection>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-8">
-              <ProductHero image={images[0]} alt={title} />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+            <div className="lg:col-span-2 space-y-16">
+              <AnimatedSection delay={100}>
+                <ProductHero image={images[0]} alt={title} />
+              </AnimatedSection>
 
-              <div className="space-y-4">
-                <h1 className="text-3xl md:text-4xl font-semibold text-foreground">
-                  Dverové Systémy
-                </h1>
+              <AnimatedSection delay={200}>
+                <div className="space-y-6">
+                  <h2 className="text-foreground">Dverové Systémy</h2>
 
-                <div className="prose prose-lg max-w-none space-y-4">
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Dvere vytvárajú{" "}
-                    <strong className="text-foreground font-medium">
-                      prvý dojem
-                    </strong>{" "}
-                    o budove. Rozmanitá ponuka dverí z profilov{" "}
-                    <strong className="text-foreground font-medium">WDS</strong>{" "}
-                    – vrátane vchodových, interiérových, balkónových a posuvných
-                    dverí – dokáže uspokojiť požiadavky aj tých najnáročnejších
-                    majiteľov domov.
-                  </p>
+                  <div className="space-y-4">
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      Dvere vytvárajú{" "}
+                      <span className="text-foreground font-medium">
+                        prvý dojem
+                      </span>{" "}
+                      o budove. Rozmanitá ponuka dverí z profilov{" "}
+                      <span className="text-foreground font-medium">WDS</span>{" "}
+                      – vrátane vchodových, interiérových, balkónových a posuvných
+                      dverí – dokáže uspokojiť požiadavky aj tých najnáročnejších
+                      majiteľov domov.
+                    </p>
 
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Naši klienti sa môžu spoľahnúť na{" "}
-                    <strong className="text-foreground font-medium">
-                      vynikajúcu kvalitu
-                    </strong>{" "}
-                    a{" "}
-                    <strong className="text-foreground font-medium">
-                      optimálnu tepelnú izoláciu
-                    </strong>{" "}
-                    dverí vyrobených z profilov{" "}
-                    <strong className="text-foreground font-medium">WDS</strong>
-                    .
-                  </p>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      Naši klienti sa môžu spoľahnúť na{" "}
+                      <span className="text-foreground font-medium">
+                        vynikajúcu kvalitu
+                      </span>{" "}
+                      a{" "}
+                      <span className="text-foreground font-medium">
+                        optimálnu tepelnú izoláciu
+                      </span>{" "}
+                      dverí vyrobených z profilov{" "}
+                      <span className="text-foreground font-medium">WDS</span>.
+                    </p>
+                  </div>
+                </div>
+              </AnimatedSection>
 
-                  <h2 className="text-xl font-medium text-foreground pt-4">
+              <AnimatedSection delay={300}>
+                <div className="space-y-6">
+                  <h3 className="text-foreground">
                     Profily WDS – Široký Výber pre Každý Priestor
-                  </h2>
+                  </h3>
 
-                  <p className="text-base text-muted-foreground leading-relaxed">
+                  <p className="text-lg text-muted-foreground leading-relaxed">
                     Portfólio dverových systémov{" "}
-                    <strong className="text-foreground font-medium">WDS</strong>{" "}
+                    <span className="text-foreground font-medium">WDS</span>{" "}
                     zahŕňa systémy s montážnou hĺbkou{" "}
-                    <strong className="text-foreground font-medium">
-                      60 mm
-                    </strong>{" "}
-                    a{" "}
-                    <strong className="text-foreground font-medium">
-                      70 mm
-                    </strong>
-                    . Tieto systémy poskytujú skvelú zvukovú izoláciu, vyznačujú
-                    sa vysokou energetickou účinnosťou a sú určené na inštaláciu
-                    v bytoch, rodinných domoch a kancelárskych priestoroch.
+                    <span className="text-foreground font-medium">60 mm</span> a{" "}
+                    <span className="text-foreground font-medium">70 mm</span>.
+                    Tieto systémy poskytujú skvelú zvukovú izoláciu, vyznačujú sa
+                    vysokou energetickou účinnosťou a sú určené na inštaláciu v
+                    bytoch, rodinných domoch a kancelárskych priestoroch.
                   </p>
+                </div>
+              </AnimatedSection>
 
-                  <h3 className="text-lg font-medium text-foreground pt-2">
+              <AnimatedSection delay={350}>
+                <div className="space-y-6">
+                  <h3 className="text-foreground">
                     WDS 76 – Nový Štandard Plastových Dverí
                   </h3>
 
-                  <p className="text-base text-muted-foreground leading-relaxed">
+                  <p className="text-lg text-muted-foreground leading-relaxed">
                     Okrem štandardných systémov ponúkame aj novú dverovú radu{" "}
-                    <strong className="text-foreground font-medium">
-                      WDS 76
-                    </strong>
-                    , ktorá predstavuje moderný štandard plastových dverí.
+                    <span className="text-foreground font-medium">WDS 76</span>,
+                    ktorá predstavuje moderný štandard plastových dverí.
                   </p>
 
-                  {/* <blockquote className="border-l-4 border-primary pl-4 italic text-lg text-foreground/80">
-                    Dvere WDS 76 – Teplo, Ticho, Spoľahlivosť.
-                  </blockquote> */}
-
-                  <p className="text-base text-muted-foreground leading-relaxed">
+                  <p className="text-lg text-muted-foreground leading-relaxed">
                     Moderné vchodové dvere{" "}
-                    <strong className="text-foreground font-medium">
-                      WDS 76
-                    </strong>{" "}
+                    <span className="text-foreground font-medium">WDS 76</span>{" "}
                     zabezpečujú špičkovú tepelnú a zvukovú izoláciu vďaka:
                   </p>
 
-                  <ul className="list-disc list-inside text-base text-muted-foreground leading-relaxed ml-2 space-y-1">
+                  <ul className="text-lg text-muted-foreground leading-relaxed ml-6 space-y-2 list-disc">
                     <li>5-komorovému profilu</li>
                     <li>Trom kontúram tesnenia</li>
                     <li>Pevnej kovovej výstuži (armovacej vložke)</li>
                   </ul>
 
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    S montážnou hĺbkou 76 mm a možnosťou 4-krídlového riešenia
-                    sú ideálne pre rodinné domy, byty a kancelárie.
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    S montážnou hĺbkou 76 mm a možnosťou 4-krídlového riešenia sú
+                    ideálne pre rodinné domy, byty a kancelárie.
                   </p>
+                </div>
+              </AnimatedSection>
 
-                  <h3 className="text-lg font-medium text-foreground pt-2">
-                    Flexibilita a Dizajn
+              <AnimatedSection delay={400}>
+                <TechnologyGrid technologies={technologies} />
+              </AnimatedSection>
+
+              <AnimatedSection delay={450}>
+                <div className="space-y-6">
+                  <h3 className="text-foreground">
+                    Typy Dverí WDS v Našej Ponuke
                   </h3>
 
-                  <ul className="list-disc list-inside text-base text-muted-foreground leading-relaxed ml-2 space-y-1">
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Vyrábame dvere rôznych typov, aby sme pokryli všetky vaše
+                    potreby, od jednoduchého prístupu na balkón až po robustné
+                    vchodové systémy.
+                  </p>
+
+                  <ul className="text-lg text-muted-foreground leading-relaxed ml-6 space-y-4 list-disc">
                     <li>
-                      <strong className="text-foreground font-medium">
-                        Varianty otvárania:
-                      </strong>{" "}
-                      Dostupné dvere s vnútorným aj vonkajším otváraním.
+                      <span className="text-foreground font-medium">
+                        Balkónové plastové dvere
+                      </span>{" "}
+                      – Vyrábajú sa z okenného PVC profilu. Odporúčajú sa do
+                      vnútorných priestorov alebo na oddelenie interiéru od
+                      balkóna.
                     </li>
                     <li>
-                      <strong className="text-foreground font-medium">
-                        Estetika:
-                      </strong>{" "}
-                      Široký výber laminovaných riešení pre dokonalé zladenie s
-                      fasádou a interiérom.
+                      <span className="text-foreground font-medium">
+                        Vchodové plastové dvere
+                      </span>{" "}
+                      – Spoľahlivé dvere pre zabezpečenie obytných a komerčných
+                      priestorov.
+                    </li>
+                    <li>
+                      <span className="text-foreground font-medium">
+                        Interiérové plastové dvere
+                      </span>{" "}
+                      – Ideálne do kancelárií a priestorov vyžadujúcich zvýšenú
+                      zvukovú izoláciu.
+                    </li>
+                    <li>
+                      <span className="text-foreground font-medium">
+                        Posuvné plastové dvere
+                      </span>{" "}
+                      – Vybavené spoľahlivým mechanizmom, šetria úžitkovú plochu v
+                      miestnosti.
                     </li>
                   </ul>
                 </div>
-              </div>
-              <TechnologyGrid technologies={technologies} />
-
-              <div className="space-y-4">
-                <h2 className="text-xl font-medium text-foreground">
-                  Typy Dverí WDS v Našej Ponuke
-                </h2>
-
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  Vyrábame dvere rôznych typov, aby sme pokryli všetky vaše
-                  potreby, od jednoduchého prístupu na balkón až po robustné
-                  vchodové systémy.
-                </p>
-
-                <ul className="list-disc list-outside text-base text-muted-foreground leading-relaxed ml-5 space-y-3">
-                  <li>
-                    <strong className="text-foreground font-medium">
-                      Balkónové plastové dvere
-                    </strong>{" "}
-                    – Vyrábajú sa z okenného PVC profilu. Odporúčajú sa do
-                    vnútorných priestorov alebo na oddelenie interiéru od
-                    balkóna.
-                  </li>
-                  <li>
-                    <strong className="text-foreground font-medium">
-                      Vchodové plastové dvere
-                    </strong>{" "}
-                    – Spoľahlivé dvere pre zabezpečenie obytných a komerčných
-                    priestorov.
-                  </li>
-                  <li>
-                    <strong className="text-foreground font-medium">
-                      Interiérové plastové dvere
-                    </strong>{" "}
-                    – Ideálne do kancelárií a priestorov vyžadujúcich zvýšenú
-                    zvukovú izoláciu.
-                  </li>
-                  <li>
-                    <strong className="text-foreground font-medium">
-                      Posuvné plastové dvere
-                    </strong>{" "}
-                    – Vybavené spoľahlivým mechanizmom, šetria úžitkovú plochu v
-                    miestnosti.
-                  </li>
-                </ul>
-              </div>
+              </AnimatedSection>
             </div>
 
             <div className="lg:col-span-1">
               <div className="sticky top-24">
-                <ContactSidebar />
+                <AnimatedSection delay={200} direction="right">
+                  <ContactSidebar />
+                </AnimatedSection>
               </div>
             </div>
           </div>
