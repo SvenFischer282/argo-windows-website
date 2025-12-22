@@ -5,7 +5,7 @@ interface ProductHeroProps {
 
 const ProductHero = ({ image, alt }: ProductHeroProps) => {
   return (
-    <div className="rounded-xl overflow-hidden shadow-xl">
+    <div className=" overflow-hidden shadow-xl">
       <img
         src={image}
         alt={alt}
