@@ -4,6 +4,7 @@ import ContactSidebar from "@/components/ContactSidebar";
 import ProductBreadcrumb from "@/components/product/ProductBreadcrumb";
 import ProductHero from "@/components/product/ProductHero";
 import TechnologyGrid from "@/components/product/TechnologyGrid";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const WindowsLayout = () => {
   const title = "Okná";
@@ -71,61 +72,72 @@ const WindowsLayout = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-muted/30 pt-16">
+    <div className="min-h-screen flex flex-col bg-background pt-16">
       <Navigation />
 
-      <main className="flex-1 animate-fade-in">
-        <div className="container mx-auto px-4 py-8">
-          <ProductBreadcrumb title={title} />
+      <main className="flex-1">
+        <div className="container mx-auto px-4 py-16 md:py-24">
+          <AnimatedSection>
+            <ProductBreadcrumb title={title} />
+          </AnimatedSection>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-8">
-              <ProductHero image={images[0]} alt={title} />
-              <div className="space-y-4">
-                <h1 className="text-3xl md:text-4xl font-semibold text-foreground">
-                  Okná
-                </h1>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+            <div className="lg:col-span-2 space-y-16">
+              <AnimatedSection delay={100}>
+                <ProductHero image={images[0]} alt={title} />
+              </AnimatedSection>
 
-                <div className="prose prose-lg max-w-none">
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Plastové okná sú veľmi obľúbené vďaka svojmu modernému
-                    dizajnu a vysokej praktickosti. Nie je ich potrebné natierať
-                    a zároveň pôsobia esteticky a elegantne.
-                  </p>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Spolupracujeme s výrobcom profilových systémov{" "}
-                    <strong className="text-foreground font-medium">WDS</strong>
-                    , ktorého produkty prechádzajú dôslednou kontrolou kvality v
-                    každom kroku výroby.
-                  </p>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Profilové systémy{" "}
-                    <strong className="text-foreground font-medium">WDS</strong>{" "}
-                    sú vyrábané podľa medzinárodných a slovenských štandardov
-                    kvality, priamo pre klimatické podmienky Slovenska a
-                    slovenské domácnosti.
-                  </p>
-                </div>
-              </div>
-              <TechnologyGrid technologies={technologies} />
-              {/* Technology Descriptions */}
-              <div className="space-y-4">
-                {technologies.map((tech, index) => (
-                  <div key={index} className="space-y-1">
-                    <h4 className="text-lg font-medium text-foreground">
-                      {tech.name}
-                    </h4>
-                    <p className="text-base text-muted-foreground leading-relaxed">
-                      {tech.descriptionDetailed}
+              <AnimatedSection delay={200}>
+                <div className="space-y-6">
+                  <h2 className="text-foreground">Okná</h2>
+
+                  <div className="space-y-4">
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      Plastové okná sú veľmi obľúbené vďaka svojmu modernému
+                      dizajnu a vysokej praktickosti. Nie je ich potrebné natierať
+                      a zároveň pôsobia esteticky a elegantne.
+                    </p>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      Spolupracujeme s výrobcom profilových systémov{" "}
+                      <span className="text-foreground font-medium">WDS</span>
+                      , ktorého produkty prechádzajú dôslednou kontrolou kvality v
+                      každom kroku výroby.
+                    </p>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      Profilové systémy{" "}
+                      <span className="text-foreground font-medium">WDS</span>{" "}
+                      sú vyrábané podľa medzinárodných a slovenských štandardov
+                      kvality, priamo pre klimatické podmienky Slovenska a
+                      slovenské domácnosti.
                     </p>
                   </div>
-                ))}
-              </div>
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection delay={300}>
+                <TechnologyGrid technologies={technologies} />
+              </AnimatedSection>
+
+              <AnimatedSection delay={400}>
+                <div className="space-y-8">
+                  <h3 className="text-foreground">Technické špecifikácie</h3>
+                  {technologies.map((tech, index) => (
+                    <div key={index} className="space-y-2">
+                      <h4 className="text-foreground">{tech.name}</h4>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {tech.descriptionDetailed}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </AnimatedSection>
             </div>
 
             <div className="lg:col-span-1">
               <div className="sticky top-24">
-                <ContactSidebar />
+                <AnimatedSection delay={200} direction="right">
+                  <ContactSidebar />
+                </AnimatedSection>
               </div>
             </div>
           </div>
