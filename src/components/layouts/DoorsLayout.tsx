@@ -57,23 +57,21 @@ const DoorsLayout = () => {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative">
+        <section className="relative h-[60vh] md:h-[70vh]">
           <img
             src={images[0]}
             alt={title}
-            className="w-full h-[60vh] md:h-[70vh] object-cover"
+            className="w-full h-full object-cover"
           />
-        </section>
-
-        {/* Title Section */}
-        <section className="section-padding pb-0">
-          <div className="container mx-auto px-4">
-            <AnimatedSection>
-              <ProductBreadcrumb title={title} />
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground mt-4">
-                {title}
-              </h1>
-            </AnimatedSection>
+          <div className="absolute inset-0 flex items-end">
+            <div className="container mx-auto px-4 pb-12 md:pb-16">
+              <AnimatedSection>
+                <ProductBreadcrumb title={title} />
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white mt-4 drop-shadow-lg">
+                  {title}
+                </h1>
+              </AnimatedSection>
+            </div>
           </div>
         </section>
 
