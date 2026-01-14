@@ -8,7 +8,6 @@ const FloatingCTAs = () => {
   const [animateRight, setAnimateRight] = useState(false);
 
   useEffect(() => {
-    // Trigger animation after mount
     setTimeout(() => setAnimateLeft(true), 100);
     setTimeout(() => setAnimateRight(true), 200);
   }, []);
@@ -50,87 +49,91 @@ const FloatingCTAs = () => {
     <>
       {/* Left CTA - Kotly na pelety */}
       <div
-        className={`fixed bottom-4 left-0 z-50 flex items-center transition-all duration-300 ${
-          animateLeft 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 translate-y-8'
+        className={`fixed bottom-4 z-50 transition-all duration-300 ${
+          animateLeft ? 'opacity-100' : 'opacity-0 translate-y-8'
         }`}
         style={{
+          left: leftExpanded ? '16px' : '0',
           transform: animateLeft 
-            ? `translateX(${leftExpanded ? '16px' : '-100%'}) translateX(${leftExpanded ? '0' : '44px'})` 
+            ? `translateX(${leftExpanded ? '0' : '-100%'})` 
             : 'translateY(32px)'
         }}
       >
-        <a
-          href="https://kotlynapelety.sk"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 bg-primary text-primary-foreground px-5 py-3 shadow-sm transition-all duration-300 hover:bg-primary/90 border border-primary/20"
-        >
-          <Flame className="w-5 h-5 shrink-0 opacity-80" strokeWidth={1.5} />
-          <span className="font-light text-sm tracking-wide whitespace-nowrap">
-            Kotly na pelety
-          </span>
-        </a>
-        <button
-          onClick={toggleLeft}
-          className="bg-primary text-primary-foreground p-2 shadow-sm transition-all duration-300 hover:bg-primary/90 border border-l-0 border-primary/20"
-          aria-label={leftExpanded ? "Skryť" : "Zobraziť"}
-        >
-          {leftExpanded ? (
-            <ChevronLeft className="w-5 h-5 opacity-80" strokeWidth={1.5} />
-          ) : (
+        <div className="flex items-stretch">
+          <a
+            href="https://kotlynapelety.sk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 bg-primary text-primary-foreground pl-5 pr-4 py-3 shadow-sm transition-all duration-300 hover:bg-primary/90"
+          >
+            <Flame className="w-5 h-5 shrink-0 opacity-80" strokeWidth={1.5} />
+            <span className="font-light text-sm tracking-wide whitespace-nowrap">
+              Kotly na pelety
+            </span>
+          </a>
+          <button
+            onClick={toggleLeft}
+            className="bg-primary/90 text-primary-foreground px-1.5 shadow-sm transition-all duration-300 hover:bg-primary/80 flex items-center"
+            aria-label={leftExpanded ? "Skryť" : "Zobraziť"}
+          >
+            <ChevronLeft className="w-4 h-4 opacity-60" strokeWidth={1.5} />
+          </button>
+        </div>
+        {/* Collapsed state toggle */}
+        {!leftExpanded && (
+          <button
+            onClick={toggleLeft}
+            className="absolute right-0 top-0 translate-x-full bg-primary text-primary-foreground p-3 shadow-sm transition-all duration-300 hover:bg-primary/90"
+            aria-label="Zobraziť"
+          >
             <ChevronRight className="w-5 h-5 opacity-80" strokeWidth={1.5} />
-          )}
-        </button>
+          </button>
+        )}
       </div>
 
       {/* Right CTA - Brikety RUF */}
       <div
-        className={`fixed bottom-4 right-0 z-50 flex items-center transition-all duration-300 ${
-          animateRight 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 translate-y-8'
+        className={`fixed bottom-4 z-50 transition-all duration-300 ${
+          animateRight ? 'opacity-100' : 'opacity-0 translate-y-8'
         }`}
         style={{
+          right: rightExpanded ? '16px' : '0',
           transform: animateRight 
-            ? `translateX(${rightExpanded ? '-16px' : '100%'}) translateX(${rightExpanded ? '0' : '-44px'})` 
+            ? `translateX(${rightExpanded ? '0' : '100%'})` 
             : 'translateY(32px)'
         }}
       >
-        <button
-          onClick={toggleRight}
-          className="bg-foreground text-background p-2 shadow-sm transition-all duration-300 hover:bg-foreground/90 border border-r-0 border-foreground/20"
-          aria-label={rightExpanded ? "Skryť" : "Zobraziť"}
-        >
-          {rightExpanded ? (
-            <ChevronRight className="w-5 h-5 opacity-80" strokeWidth={1.5} />
-          ) : (
+        <div className="flex items-stretch">
+          <button
+            onClick={toggleRight}
+            className="bg-foreground/90 text-background px-1.5 shadow-sm transition-all duration-300 hover:bg-foreground/80 flex items-center"
+            aria-label={rightExpanded ? "Skryť" : "Zobraziť"}
+          >
+            <ChevronRight className="w-4 h-4 opacity-60" strokeWidth={1.5} />
+          </button>
+          <a
+            href="https://briketyruf.sk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 bg-foreground text-background pl-4 pr-5 py-3 shadow-sm transition-all duration-300 hover:bg-foreground/90"
+          >
+            <WoodIcon />
+            <span className="font-light text-sm tracking-wide whitespace-nowrap">
+              Brikety RUF
+            </span>
+          </a>
+        </div>
+        {/* Collapsed state toggle */}
+        {!rightExpanded && (
+          <button
+            onClick={toggleRight}
+            className="absolute left-0 top-0 -translate-x-full bg-foreground text-background p-3 shadow-sm transition-all duration-300 hover:bg-foreground/90"
+            aria-label="Zobraziť"
+          >
             <ChevronLeft className="w-5 h-5 opacity-80" strokeWidth={1.5} />
-          )}
-        </button>
-        <a
-          href="https://briketyruf.sk"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 bg-foreground text-background px-5 py-3 shadow-sm transition-all duration-300 hover:bg-foreground/90"
-        >
-          <WoodIcon />
-          <span className="font-light text-sm tracking-wide whitespace-nowrap">
-            Brikety RUF
-          </span>
-        </a>
+          </button>
+        )}
       </div>
-
-      {/* Mobile stacking styles */}
-      <style>{`
-        @media (max-width: 480px) {
-          .fixed.bottom-4 {
-            left: 50% !important;
-            right: auto !important;
-          }
-        }
-      `}</style>
     </>
   );
 };
