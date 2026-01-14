@@ -1,58 +1,28 @@
 import { useState, useEffect } from 'react';
-import { Flame, X } from 'lucide-react';
-
-const DISMISS_DURATION_DAYS = 7;
-
-const isDismissExpired = (key: string): boolean => {
-  const dismissedAt = localStorage.getItem(key);
-  if (!dismissedAt) return true;
-  
-  const dismissDate = new Date(parseInt(dismissedAt));
-  const now = new Date();
-  const daysDiff = (now.getTime() - dismissDate.getTime()) / (1000 * 60 * 60 * 24);
-  
-  return daysDiff >= DISMISS_DURATION_DAYS;
-};
+import { Flame, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const FloatingCTAs = () => {
-  const [showLeft, setShowLeft] = useState(false);
-  const [showRight, setShowRight] = useState(false);
+  const [leftExpanded, setLeftExpanded] = useState(true);
+  const [rightExpanded, setRightExpanded] = useState(true);
   const [animateLeft, setAnimateLeft] = useState(false);
   const [animateRight, setAnimateRight] = useState(false);
 
   useEffect(() => {
-    if (isDismissExpired('cta-kotly-dismissed')) {
-      localStorage.removeItem('cta-kotly-dismissed');
-      setShowLeft(true);
-      // Trigger animation after mount
-      setTimeout(() => setAnimateLeft(true), 100);
-    }
-    if (isDismissExpired('cta-brikety-dismissed')) {
-      localStorage.removeItem('cta-brikety-dismissed');
-      setShowRight(true);
-      // Trigger animation with slight delay for stagger effect
-      setTimeout(() => setAnimateRight(true), 200);
-    }
+    // Trigger animation after mount
+    setTimeout(() => setAnimateLeft(true), 100);
+    setTimeout(() => setAnimateRight(true), 200);
   }, []);
 
-  const dismissLeft = (e: React.MouseEvent) => {
+  const toggleLeft = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setAnimateLeft(false);
-    setTimeout(() => {
-      localStorage.setItem('cta-kotly-dismissed', Date.now().toString());
-      setShowLeft(false);
-    }, 300);
+    setLeftExpanded(!leftExpanded);
   };
 
-  const dismissRight = (e: React.MouseEvent) => {
+  const toggleRight = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setAnimateRight(false);
-    setTimeout(() => {
-      localStorage.setItem('cta-brikety-dismissed', Date.now().toString());
-      setShowRight(false);
-    }, 300);
+    setRightExpanded(!rightExpanded);
   };
 
   // Custom wood/log icon
@@ -79,71 +49,85 @@ const FloatingCTAs = () => {
   return (
     <>
       {/* Left CTA - Kotly na pelety */}
-      {showLeft && (
+      <div
+        className={`fixed bottom-4 left-0 z-50 flex items-center transition-all duration-300 ${
+          animateLeft 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-8'
+        }`}
+        style={{
+          transform: animateLeft 
+            ? `translateX(${leftExpanded ? '16px' : '-100%'}) translateX(${leftExpanded ? '0' : '44px'})` 
+            : 'translateY(32px)'
+        }}
+      >
         <a
           href="https://kotlynapelety.sk"
           target="_blank"
           rel="noopener noreferrer"
-          className={`fixed bottom-4 left-4 z-50 flex items-center gap-3 bg-primary text-primary-foreground px-5 py-3 shadow-sm transition-all duration-300 hover:bg-primary/90 hover:-translate-y-0.5 group max-w-[calc(50vw-24px)] md:max-w-none border border-primary/20 ${
-            animateLeft 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-8'
-          }`}
+          className="flex items-center gap-3 bg-primary text-primary-foreground px-5 py-3 shadow-sm transition-all duration-300 hover:bg-primary/90 border border-primary/20"
         >
           <Flame className="w-5 h-5 shrink-0 opacity-80" strokeWidth={1.5} />
-          <span className="font-light text-sm tracking-wide whitespace-nowrap overflow-hidden text-ellipsis">
+          <span className="font-light text-sm tracking-wide whitespace-nowrap">
             Kotly na pelety
           </span>
-          <button
-            onClick={dismissLeft}
-            className="ml-1 p-1 hover:bg-white/10 transition-colors"
-            aria-label="Zavrieť"
-          >
-            <X className="w-3.5 h-3.5 opacity-70" strokeWidth={1.5} />
-          </button>
         </a>
-      )}
+        <button
+          onClick={toggleLeft}
+          className="bg-primary text-primary-foreground p-2 shadow-sm transition-all duration-300 hover:bg-primary/90 border border-l-0 border-primary/20"
+          aria-label={leftExpanded ? "Skryť" : "Zobraziť"}
+        >
+          {leftExpanded ? (
+            <ChevronLeft className="w-5 h-5 opacity-80" strokeWidth={1.5} />
+          ) : (
+            <ChevronRight className="w-5 h-5 opacity-80" strokeWidth={1.5} />
+          )}
+        </button>
+      </div>
 
       {/* Right CTA - Brikety RUF */}
-      {showRight && (
+      <div
+        className={`fixed bottom-4 right-0 z-50 flex items-center transition-all duration-300 ${
+          animateRight 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-8'
+        }`}
+        style={{
+          transform: animateRight 
+            ? `translateX(${rightExpanded ? '-16px' : '100%'}) translateX(${rightExpanded ? '0' : '-44px'})` 
+            : 'translateY(32px)'
+        }}
+      >
+        <button
+          onClick={toggleRight}
+          className="bg-foreground text-background p-2 shadow-sm transition-all duration-300 hover:bg-foreground/90 border border-r-0 border-foreground/20"
+          aria-label={rightExpanded ? "Skryť" : "Zobraziť"}
+        >
+          {rightExpanded ? (
+            <ChevronRight className="w-5 h-5 opacity-80" strokeWidth={1.5} />
+          ) : (
+            <ChevronLeft className="w-5 h-5 opacity-80" strokeWidth={1.5} />
+          )}
+        </button>
         <a
           href="https://briketyruf.sk"
           target="_blank"
           rel="noopener noreferrer"
-          className={`fixed bottom-4 right-4 z-50 flex items-center gap-3 bg-foreground text-background px-5 py-3 shadow-sm transition-all duration-300 hover:bg-foreground/90 hover:-translate-y-0.5 group max-w-[calc(50vw-24px)] md:max-w-none ${
-            animateRight 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-8'
-          }`}
+          className="flex items-center gap-3 bg-foreground text-background px-5 py-3 shadow-sm transition-all duration-300 hover:bg-foreground/90"
         >
           <WoodIcon />
-          <span className="font-light text-sm tracking-wide whitespace-nowrap overflow-hidden text-ellipsis">
+          <span className="font-light text-sm tracking-wide whitespace-nowrap">
             Brikety RUF
           </span>
-          <button
-            onClick={dismissRight}
-            className="ml-1 p-1 hover:bg-white/10 transition-colors"
-            aria-label="Zavrieť"
-          >
-            <X className="w-3.5 h-3.5 opacity-70" strokeWidth={1.5} />
-          </button>
         </a>
-      )}
+      </div>
 
       {/* Mobile stacking styles */}
       <style>{`
         @media (max-width: 480px) {
-          .fixed.bottom-4.left-4,
-          .fixed.bottom-4.right-4 {
-            left: 50%;
-            right: auto;
-            transform: translateX(-50%);
-          }
-          .fixed.bottom-4.left-4 {
-            bottom: 4.5rem;
-          }
-          .fixed.bottom-4.right-4 {
-            bottom: 1rem;
+          .fixed.bottom-4 {
+            left: 50% !important;
+            right: auto !important;
           }
         }
       `}</style>
