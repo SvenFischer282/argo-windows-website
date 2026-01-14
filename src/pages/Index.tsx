@@ -92,7 +92,6 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col pt-16">
       <Navigation />
-
       {/* Hero Carousel Section */}
       <HeroCarousel
         images={[
@@ -107,12 +106,10 @@ const Index = () => {
             "Viac ako 20 rokov skúseností s výrobou a montážou okien, dverí a fasád",
         }}
       />
-
       <AnimatedSection>
         <OurProducts />
       </AnimatedSection>
-
-      {/* FAQ Section
+      FAQ Section
       <AnimatedSection>
         <section className="section-padding bg-background">
           <div className="container mx-auto px-4">
@@ -211,8 +208,7 @@ const Index = () => {
             </div>
           </div>
         </section>
-      </AnimatedSection> */}
-
+      </AnimatedSection>
       {/* Contact Section */}
       <AnimatedSection>
         <section className="section-padding bg-muted/30">
@@ -293,7 +289,6 @@ const Index = () => {
           </div>
         </section>
       </AnimatedSection>
-
       <Footer />
     </div>
   );

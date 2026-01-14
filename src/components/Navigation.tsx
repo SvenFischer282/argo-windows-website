@@ -2,16 +2,19 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Label } from "recharts";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [homeDropdownOpen, setHomeDropdownOpen] = useState(false);
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const location = useLocation();
-  
+
   const isActive = (path: string) => location.pathname === path;
-  const isProductActive = () => products.some(p => location.pathname === p.path);
-  const isHomeDropdownActive = () => homeLinks.some(l => location.pathname === l.path);
+  const isProductActive = () =>
+    products.some((p) => location.pathname === p.path);
+  const isHomeDropdownActive = () =>
+    homeLinks.some((l) => location.pathname === l.path);
 
   const products = [
     { label: "Okná", path: "/windows" },
@@ -25,6 +28,7 @@ const Navigation = () => {
     { label: "O nás", path: "/about-us" },
     { label: "Naše služby", path: "/our-services" },
     { label: "Produkcia", path: "/production" },
+    { label: "Často kladené otázky", path: "/faq" },
   ];
 
   return (
@@ -178,10 +182,16 @@ const Navigation = () => {
               }`}
               onClick={() => setIsOpen(false)}
             >
-              <span className={`w-1.5 h-1.5 rounded-full ${isActive("/") ? "bg-primary-foreground" : "bg-primary-foreground/60"}`}></span>
+              <span
+                className={`w-1.5 h-1.5 rounded-full ${
+                  isActive("/")
+                    ? "bg-primary-foreground"
+                    : "bg-primary-foreground/60"
+                }`}
+              ></span>
               Domov
             </Link>
-            
+
             {homeLinks.map((link) => (
               <Link
                 key={link.path}
@@ -196,7 +206,7 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            
+
             <div className="pt-2">
               <div className="flex items-center gap-3 px-4 py-3 text-base font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary-foreground/60"></span>
@@ -217,7 +227,7 @@ const Navigation = () => {
                 </Link>
               ))}
             </div>
-            
+
             <div className="pt-2 border-t border-primary-foreground/20 mt-2">
               <Link
                 to="/contact"
@@ -228,7 +238,13 @@ const Navigation = () => {
                 }`}
                 onClick={() => setIsOpen(false)}
               >
-                <span className={`w-1.5 h-1.5 rounded-full ${isActive("/contact") ? "bg-primary-foreground" : "bg-primary-foreground/60"}`}></span>
+                <span
+                  className={`w-1.5 h-1.5 rounded-full ${
+                    isActive("/contact")
+                      ? "bg-primary-foreground"
+                      : "bg-primary-foreground/60"
+                  }`}
+                ></span>
                 Kontakt
               </Link>
             </div>
