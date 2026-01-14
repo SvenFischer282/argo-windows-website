@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Flame, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Flame, ChevronLeft, ChevronRight, FlameKindling } from "lucide-react";
 
 const FloatingCTAs = () => {
   const [leftExpanded, setLeftExpanded] = useState(true);
@@ -26,13 +26,13 @@ const FloatingCTAs = () => {
 
   // Custom wood/log icon
   const WoodIcon = () => (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="1.5" 
-      strokeLinecap="round" 
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
       strokeLinejoin="round"
       className="w-4 h-4 sm:w-5 sm:h-5 shrink-0"
     >
@@ -48,23 +48,26 @@ const FloatingCTAs = () => {
       {/* Left CTA - Kotly na pelety */}
       <div
         className={`fixed bottom-4 z-50 transition-all duration-300 ${
-          animateLeft ? 'opacity-100' : 'opacity-0 translate-y-8'
+          animateLeft ? "opacity-100" : "opacity-0 translate-y-8"
         }`}
         style={{
-          left: leftExpanded ? '8px' : '0',
-          transform: animateLeft 
-            ? `translateX(${leftExpanded ? '0' : '-100%'})` 
-            : 'translateY(32px)'
+          left: leftExpanded ? "8px" : "0",
+          transform: animateLeft
+            ? `translateX(${leftExpanded ? "0" : "-100%"})`
+            : "translateY(32px)",
         }}
       >
         <div className="flex items-stretch">
-      <a
+          <a
             href="https://kotlynapelety.sk"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 sm:gap-3 bg-primary text-primary-foreground pl-3 sm:pl-5 pr-2 sm:pr-4 py-2 sm:py-3 shadow-sm transition-all duration-300 hover:bg-primary/90"
           >
-            <Flame className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 opacity-80" strokeWidth={1.5} />
+            <Flame
+              className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 opacity-80"
+              strokeWidth={1.5}
+            />
             <span className="font-light text-xs sm:text-sm tracking-wide whitespace-nowrap">
               Kotly na pelety
             </span>
@@ -92,13 +95,13 @@ const FloatingCTAs = () => {
       {/* Right CTA - Brikety RUF */}
       <div
         className={`fixed bottom-4 z-50 transition-all duration-300 ${
-          animateRight ? 'opacity-100' : 'opacity-0 translate-y-8'
+          animateRight ? "opacity-100" : "opacity-0 translate-y-8"
         }`}
         style={{
-          right: rightExpanded ? '8px' : '0',
-          transform: animateRight 
-            ? `translateX(${rightExpanded ? '0' : '100%'})` 
-            : 'translateY(32px)'
+          right: rightExpanded ? "8px" : "0",
+          transform: animateRight
+            ? `translateX(${rightExpanded ? "0" : "100%"})`
+            : "translateY(32px)",
         }}
       >
         <div className="flex items-stretch">
@@ -115,7 +118,10 @@ const FloatingCTAs = () => {
             rel="noopener noreferrer"
             className="flex items-center gap-2 sm:gap-3 bg-foreground text-background pl-2 sm:pl-4 pr-3 sm:pr-5 py-2 sm:py-3 shadow-sm transition-all duration-300 hover:bg-foreground/90"
           >
-            <WoodIcon />
+            <FlameKindling
+              className="w-5 h-5 shrink-0 opacity-80"
+              strokeWidth={1.5}
+            />
             <span className="font-light text-xs sm:text-sm tracking-wide whitespace-nowrap">
               Brikety RUF
             </span>
