@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/HeroCarousel";
@@ -69,6 +70,13 @@ const OurServices = () => {
 
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden pt-16">
+      <Helmet>
+        <title>Naše služby - ARGO SNV</title>
+        <meta
+          name="description"
+          content="Kompletné služby v oblasti okien, dverí, fasádnych a posuvných systémov. Zabezpečujeme všetko od poradenstva až po profesionálnu montáž."
+        />
+      </Helmet>
       <Navigation />
 
       <HeroCarousel images={carouselImages} height="calc(100vh - 4rem)" />

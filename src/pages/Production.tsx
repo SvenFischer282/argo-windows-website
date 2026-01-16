@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -34,6 +35,13 @@ const Production = () => {
 
   return (
     <div className="min-h-screen flex flex-col pt-16">
+      <Helmet>
+        <title>Produkcia - ARGO SNV</title>
+        <meta
+          name="description"
+          content="Nahliadnite do našej výroby. Vďaka moderným technológiám a kvalifikovanému tímu garantujeme vysokú kvalitu našich produktov."
+        />
+      </Helmet>
       <Navigation />
 
       {/* Hero Section */}

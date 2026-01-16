@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -5,6 +6,13 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-background pt-16">
+      <Helmet>
+        <title>Zásady ochrany osobných údajov - ARGO SNV</title>
+        <meta
+          name="description"
+          content="Prečítajte si, ako spoločnosť ARGO SNV spracúva a chráni vaše osobné údaje v súlade s GDPR. Informácie o vašich právach a používaní cookies."
+        />
+      </Helmet>
       <Navigation />
 
       <main className="container mx-auto px-4 py-16 md:py-24">

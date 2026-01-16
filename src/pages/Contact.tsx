@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -81,6 +82,13 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background pt-16">
+      <Helmet>
+        <title>Kontakt - ARGO SNV</title>
+        <meta
+          name="description"
+          content="Kontaktujte nás ohľadom vašich požiadaviek. Náš tím je pripravený vám poradiť a pripraviť ponuku na mieru."
+        />
+      </Helmet>
       <Navigation />
 
       <main className="container mx-auto px-4 py-16 md:py-24">

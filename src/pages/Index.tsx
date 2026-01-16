@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -91,6 +92,13 @@ const ContactForm = () => {
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col pt-16">
+      <Helmet>
+        <title>ARGO SNV - Domov</title>
+        <meta
+          name="description"
+          content="ARGO SNV - výroba a montáž kvalitných okien, dverí a fasádnych systémov. Zistite viac o našich produktoch a službách."
+        />
+      </Helmet>
       <Navigation />
       {/* Hero Carousel Section */}
       <HeroCarousel
