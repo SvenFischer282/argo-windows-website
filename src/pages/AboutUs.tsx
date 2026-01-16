@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -40,6 +41,13 @@ const AboutUs = () => {
 
   return (
     <div className="min-h-screen flex flex-col pt-16">
+      <Helmet>
+        <title>O nás - ARGO SNV</title>
+        <meta
+          name="description"
+          content="Spoznajte spoločnosť ARGO SNV. S viac ako 20-ročnými skúsenosťami sme vaším spoľahlivým partnerom pre okná, dvere a fasády."
+        />
+      </Helmet>
       <Navigation />
 
       {/* Hero Section */}

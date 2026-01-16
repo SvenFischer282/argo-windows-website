@@ -22,6 +22,7 @@ import Products from "./pages/Products";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import FAQ from "./components/FAQ";
+import { Helmet } from "react-helmet-async";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,13 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <Helmet>
+          <title>ARGO SNV - Kvalitné okná a fasádne systémy</title>
+          <meta
+            name="description"
+            content="Výroba kvalitných okien, dverí, posuvných systémov a hliníkových konštrukcií. Moderné technológie a prémiová kvalita."
+          />
+        </Helmet>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/windows" element={<Windows />} />

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -5,6 +6,13 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 const TermsConditions = () => {
   return (
     <div className="min-h-screen bg-background pt-16">
+      <Helmet>
+        <title>Všeobecné obchodné podmienky - ARGO SNV</title>
+        <meta
+          name="description"
+          content="Prečítajte si naše Všeobecné obchodné podmienky, ktoré upravujú práva a povinnosti medzi spoločnosťou ARGO SNV a jej zákazníkmi."
+        />
+      </Helmet>
       <Navigation />
 
       <main className="container mx-auto px-4 py-16 md:py-24">
