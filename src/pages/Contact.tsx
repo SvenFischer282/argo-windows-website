@@ -293,10 +293,10 @@ const Contact = () => {
                           Email
                         </p>
                         <a
-                          href="mailto:info@company.sk"
+                          href="mailto:argosnvsro@gmail.com"
                           className="text-muted-foreground hover:text-primary transition-colors duration-300"
                         >
-                          info@company.sk
+                          argosnvsro@gmail.com
                         </a>
                       </div>
                     </div>
