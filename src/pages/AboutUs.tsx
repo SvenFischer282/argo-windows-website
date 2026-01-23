@@ -55,7 +55,7 @@ const AboutUs = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(${STORAGE_URL}/1.jpg)`,
+            backgroundImage: `url(${STORAGE_URL}/1.webp)`,
           }}
         />
         <div className="absolute inset-0 bg-foreground/40" />

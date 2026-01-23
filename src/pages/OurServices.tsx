@@ -8,15 +8,15 @@ import { STORAGE_URL } from "@/lib/constants";
 
 const carouselImages = [
   {
-    src: `${STORAGE_URL}/1.jpg`,
+    src: `${STORAGE_URL}/1.webp`,
     alt: "Profesionálna montáž",
   },
   {
-    src: `${STORAGE_URL}/2.jpg`,
+    src: `${STORAGE_URL}/2.webp`,
     alt: "Kompletné riešenia pre váš domov",
   },
   {
-    src: `${STORAGE_URL}/3.jpg`,
+    src: `${STORAGE_URL}/3.webp`,
     alt: "Kvalitné okná a dvere",
   },
 ];
